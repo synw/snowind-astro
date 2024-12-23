@@ -1,0 +1,64 @@
+---
+const { hideHeader } = Astro.props;
+let cls = "w-full h-16 primary drop-shadow-lg";
+if (hideHeader) {
+    cls = cls + " hidden";
+}
+---
+
+<header id="header" class={cls}>
+    <div class="h-full w-full flex flex-row justify-center items-center">
+        <div class="flex items-center w-full">
+            <div>
+                <slot name="logo" />
+            </div>
+            <div class="flex flex-grow items-center justify-end">
+                <slot name="links" />
+            </div>
+        </div>
+        <div
+            id="menu"
+            class="hidden w-full fixed top-16 right-0 p-5 secondary z-50 slide-y slideup"
+        >
+            <slot name="mobile-links" />
+        </div>
+        <div class="flex items-center sm:hidden">
+            <slot name="menu-icon">
+                <button
+                    class="text-4xl font-bold opacity-70 hover:opacity-100 duration-300 menu-toggle"
+                >
+                    &#9776;
+                </button>
+            </slot>
+        </div>
+    </div>
+
+    <script>
+        import { isMobileStore } from "../state";
+
+        let isMenuOpened = false;
+        const menu = document.getElementById("menu")!;
+        const toggleMenu = () => {
+            menu.classList.toggle("hidden");
+            if (!isMenuOpened) {
+                menu.classList.remove("slideup");
+                menu.classList.add("slidedown");
+            } else {
+                menu.classList.remove("slidedown");
+                menu.classList.add("slideup");
+            }
+            isMenuOpened = !isMenuOpened;
+        };
+        document.addEventListener("DOMContentLoaded", function () {
+            document
+                .querySelector(".menu-toggle")!
+                .addEventListener("click", toggleMenu);
+            if (isMobileStore.get()) {
+                const links = document.getElementsByClassName(".menu-link");
+                for (const link of links) {
+                    link.addEventListener("click", toggleMenu);
+                }
+            }
+        });
+    </script>
+</header>
