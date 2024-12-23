@@ -1,11 +1,11 @@
 # Snowind Astro
 
-A [Snowind](https://github.com/synw/snowind) template for Astro designed to generate static sites with an AI assistant. Features:
+A [Snowind](https://github.com/synw/snowind) template for [Astro](https://github.com/withastro/astro) designed to generate static sites with an AI assistant. Features:
 
-- **Modular Components** with limited responsabilities, easy to create and modify with an AI
-- **Responsive Design**
-- **Scss theming**
-- **Dark Mode**
+- **Modular** components with limited responsabilities, easy to create and modify with an AI
+- **Responsive** design using Tailwind css
+- **Scss theming** support
+- **Dark mode** support
 
 ## Install
 
@@ -28,7 +28,7 @@ A [Snowind](https://github.com/synw/snowind) template for Astro designed to gene
    npm run dev
    ```
 
-   This will start the development server and open the project in your default web browser.
+   Open `locahost:4321`
 
 ## Usage
 
@@ -96,7 +96,7 @@ To build the project for production, run:
 npm run build
 ```
 
-## 🧞 Commands
+## Commands
 
 All commands are run from the root of the project, from a terminal:
 
