@@ -13,22 +13,29 @@ A [Snowind](https://github.com/synw/snowind) template for [Astro](https://github
 
    ```bash
    git clone https://github.com/your-username/snowind-astro.git
-   cd snowind-astro
+   mv snowind-astro myproject
+   cd myproject
    ```
 
-2. **Install Dependencies**
+2. **Install dependencies**
 
    ```bash
    npm install
    ```
 
-3. **Run the Development Server**
+3. **Run the development server**
 
    ```bash
    npm run dev
    ```
 
    Open `locahost:4321`
+
+## Configuration
+
+Open `src/conf.ts` and set your site title and theme.
+
+Replace `public/logo.png` and `public/favicon.ico` by yours.
 
 ## Usage
 
@@ -42,9 +49,9 @@ A [Snowind](https://github.com/synw/snowind) template for [Astro](https://github
 - **`src/components/`**: Vue components for reusable UI elements.
 - **`src/icons/`**: SVG icons used in the project.
 
-### Customizing the Theme
+### Customizing the theme
 
-1. **Change the Theme**
+1. **Change the theme**
 
    Modify the `theme` variable in `src/conf.ts` to switch between themes. Available themes are `default`, `bluestar`, and `lightblue`.
 
@@ -52,7 +59,7 @@ A [Snowind](https://github.com/synw/snowind) template for [Astro](https://github
    const theme = "bluestar";
    ```
 
-2. **Add a New Theme**
+2. **Add a new theme**
 
    Create a new SCSS file in `src/scss/` and define your theme variables. Then, import the new theme in `src/scss/main.scss`.
 
@@ -60,9 +67,9 @@ A [Snowind](https://github.com/synw/snowind) template for [Astro](https://github
    @use "./mytheme.scss" as *;
    ```
 
-### Adding Pages
+### Adding pages
 
-1. **Create a New Page**
+1. **Create a new page**
 
    Add a new Astro file in `src/pages/`. For example, `src/pages/about.astro`.
 
@@ -76,7 +83,7 @@ A [Snowind](https://github.com/synw/snowind) template for [Astro](https://github
    </BaseLayout>
    ```
 
-2. **Link to the New Page**
+2. **Link to the new page**
 
    Add a link to the new page in `src/components/TheNavLinks.vue`.
 
@@ -88,7 +95,7 @@ A [Snowind](https://github.com/synw/snowind) template for [Astro](https://github
    </template>
    ```
 
-### Building for Production
+### Building for production
 
 To build the project for production, run:
 
