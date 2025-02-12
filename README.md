@@ -12,7 +12,7 @@ A [Snowind](https://github.com/synw/snowind) template for [Astro](https://github
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-username/snowind-astro.git
+   git clone https://github.com/synw/snowind-astro.git
    mv snowind-astro myproject
    cd myproject
    ```
