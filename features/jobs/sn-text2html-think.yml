@@ -1,0 +1,6 @@
+name: sn-widget
+tasks:
+  - type: "task"
+    name: "snhtml-think"
+  - type: "task"
+    name: "snhtml-code"

@@ -1,0 +1,6 @@
+name: sn-text2html-uigen
+tasks:
+  - type: task
+    name: snhtml-uigen-think
+  - type: task
+    name: snhtml-uigen-code

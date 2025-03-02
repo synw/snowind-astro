@@ -1,0 +1,22 @@
+name: sn-img-desc
+description: Run an inference query with a vision model and describe web component
+prompt: |-
+    {prompt}Provide a very detailled description of all the elements in the image:
+    description of the element, position, content, colors and any useful info you
+    can provide
+template:
+    system: |-
+        You are an AI web developer assistant. Your task is to analyze an image that
+        is part of a webpage design prototype made by our designer. We now 
+        need a detailled breakout of all the elements and content to help the developer to 
+        implement it later.
+model:
+    name: minicpm-v:8b-2.6-q8_0
+    ctx: 32768
+    template: chatml
+inferParams:
+    top_k: 1.0
+    top_p: 1.0
+    min_p: 0.05
+    temperature: 0.2
+    max_tokens: 16384
