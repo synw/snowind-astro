@@ -6,9 +6,13 @@ import TheNavLinks from "../components/TheNavLinks.vue";
 import TheLogo from "../components/TheLogo.vue";
 import { theme, useMobileBack } from "../conf";
 
-const { title, pageTitle, hideHeader } = Astro.props;
+const { title, pageTitle, hideHeader, noPadding } = Astro.props;
 const hideH = hideHeader ?? false;
 const pageCls = "theme-" + theme + " w-full h-full";
+let padCls = "background h-full w-full";
+if (!noPadding) {
+    padCls = padCls + " p-3";
+}
 ---
 
 <RootLayout title={title}>
@@ -30,7 +34,7 @@ const pageCls = "theme-" + theme + " w-full h-full";
                 </button>
             </div>
         </TheHeader>
-        <div class="p-3 background h-full w-full">
+        <div class={padCls}>
             <slot />
         </div>
     </div>
