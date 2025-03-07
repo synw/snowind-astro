@@ -2,5 +2,6 @@ name: sn-widget
 tasks:
   - type: "task"
     name: "snhtml-think"
+    chain: true
   - type: "task"
     name: "snhtml-code"

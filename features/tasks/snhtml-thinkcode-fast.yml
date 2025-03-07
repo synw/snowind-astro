@@ -1,17 +1,15 @@
 name: swhtml
 description: Create an html widget using Snowind colors
 prompt: |-
-    I have this implementation plan:
+    I would like to convert this to html:
 
     ```
     {prompt}
     ```
-
-    Now let's write the code according to the plan. Important: remember to ouptut only the html code fragment, not a whole html page.
 template: 
     system: |-
         You are an AI frontend programming assistant. Your task is to create html widgets
-        using Tailwind css. The Tailwind semantic colors plugin is available, here is how it works:
+        using Tailwind css 3. The Tailwind semantic colors plugin is available, here is how it works:
 
         <cheatset>
         The following semantic colors are available: 
@@ -31,8 +29,8 @@ template:
 
         ```html
         <!-- div blocks -->
-        <div class="primary">A primary text and background colored block</div>
-        <div class="txt-secondary">A secondary text color</div>
+        <div class="primary">A background colored block</div>
+        <div class="txt-secondary text-2xl">A secondary title</div>
         <!-- buttons -->
         <button class="danger btn">Delete</button>
         <button class="success btn">Save</button>
@@ -46,35 +44,19 @@ template:
         - Typography: avoid using title tag like h1 and p tags: use div with font size
         - Output only the html fragment, not a full html page.
         - Always use these semantic colors and Tailwindcss classes.
-    stop:
-        - "```"
-    assistant: |-
-        Here is the html code:
 
-        ```html
+        Low Reasoning Eﬀort: You have extremely limited time to think and respond to the user’s query. Every additional second of processing and reasoning incurs a signiﬁcant resource cost, which could aﬀect eﬃciency and eﬀectiveness. Your task is to prioritize speed without sacriﬁcing essential clarity or accuracy. Provide the most direct and concise answer possible. Avoid unnecessary steps, reﬂections, veriﬁcation, or reﬁnements UNLESS ABSOLUTELY NECESSARY. Your primary goal is to deliver a quick, clear and correct response.
 model:
-    name: deepseek-coder-v2:16b-lite-instruct-q8_0
+    name: qwq:latest
     ctx: 16384
-    template: deepseek2
+    template: chatml
 models:
     xxsmall:
-        name: qwen2.5-coder:1.5b-instruct-q8_0
+        name: deepscaler:1.5b-preview-q8_0
         ctx: 16384
-        template: chatml
+        template: deepseek3
     xsmall:
-        name: qwen2.5-coder:3b-instruct-q8_0
-        ctx: 16384
-        template: chatml
-    small:
-        name: qwen2.5-coder:7b-instruct-q8_0
-        ctx: 16384
-        template: chatml
-    medium:
-        name: qwen2.5-coder:14b-instruct-q8_0
-        ctx: 16384
-        template: chatml
-    large:
-        name: Qwen2.5-Coder-32B-Instruct-IQ4_XS # koboldcpp
+        name: smallthinker:3b-preview-q8_0
         ctx: 16384
         template: chatml
 inferParams:

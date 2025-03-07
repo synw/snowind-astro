@@ -1,7 +1,7 @@
 name: swhtml
 description: Create an html widget using Snowind colors from text content
 prompt: |-
-    Convert this to html:
+    Convert this to simple html:
 
     ```
     {prompt}
@@ -27,8 +27,11 @@ template:
 
         Examples:
 
+        ```html
         <div class="primary">A primary text color and background color</div>
+        <div class="txt-danger">A danger text color</div>        
         <button class="secondary btn">A secondary colored button</div>
+        ```
         </cheatset>
 
         Instructions:
@@ -50,19 +53,19 @@ model:
 models:
     xxsmall:
         name: qwen2.5-coder:1.5b-instruct-q8_0
-        ctx: 16384
+        ctx: 32768
         template: chatml
     xsmall:
         name: qwen2.5-coder:3b-instruct-q8_0
-        ctx: 16384
+        ctx: 32768
         template: chatml
     small:
         name: qwen2.5-coder:7b-instruct-q8_0
-        ctx: 16384
+        ctx: 32768
         template: chatml
     medium:
         name: deepseek-coder-v2:16b-lite-instruct-q8_0
-        ctx: 16384
+        ctx: 32768
         template: chatml
     large:
         name: Qwen2.5-Coder-32B-Instruct-IQ4_XS # koboldcpp
