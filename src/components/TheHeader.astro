@@ -38,27 +38,52 @@ if (hideHeader) {
 
         let isMenuOpened = false;
         const menu = document.getElementById("menu")!;
+        const toggleButton = document.querySelector(".menu-toggle")!;
+
+        const handleClickOutside = (event: MouseEvent) => {
+            // Only proceed if the target is a Node
+            if (!(event.target instanceof Node)) return;
+            // Close if click is outside menu and toggle button
+            if (
+                isMenuOpened &&
+                !menu.contains(event.target) &&
+                !toggleButton.contains(event.target)
+            ) {
+                toggleMenu();
+            }
+        };
+
         const toggleMenu = () => {
-            menu.classList.toggle("hidden");
+            //menu.classList.toggle("hidden");
             if (!isMenuOpened) {
+                menu.classList.remove("hidden");
                 menu.classList.remove("slideup");
                 menu.classList.add("slidedown");
+                document.addEventListener("click", handleClickOutside);
             } else {
                 menu.classList.remove("slidedown");
                 menu.classList.add("slideup");
+                document.removeEventListener("click", handleClickOutside);
+                setTimeout(() => {
+                    menu.classList.add("hidden");
+                }, 300);
             }
             isMenuOpened = !isMenuOpened;
         };
+
         document.addEventListener("DOMContentLoaded", function () {
-            document
-                .querySelector(".menu-toggle")!
-                .addEventListener("click", toggleMenu);
+            toggleButton.addEventListener("click", toggleMenu);
             if (isMobileStore.get()) {
                 const links = document.getElementsByClassName(".menu-link");
                 for (const link of links) {
                     link.addEventListener("click", toggleMenu);
                 }
             }
+        });
+
+        // Cleanup on component unmount
+        document.addEventListener("astro:after-swap", () => {
+            document.removeEventListener("click", handleClickOutside);
         });
     </script>
 </header>
