@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@agent-smith/jobs": "^0.0.12",
+    "@astrojs/node": "^9.5.0",
     "@astrojs/tailwind": "^5.1.4",
     "@astrojs/vue": "^5.0.3",
     "@locallm/api": "^0.2.0",
