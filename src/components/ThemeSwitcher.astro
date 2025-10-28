@@ -1,0 +1,32 @@
+---
+import { themes } from "../conf.js";
+---
+
+<div>
+    <select id="theme-select" class="p-2 border border-light rounded">
+        {themes.map((theme) => <option value={theme}>{theme}</option>)}
+    </select>
+</div>
+
+<script>
+    import { themeStore } from "../state";
+
+    function onThemeSwitch(event: any) {
+        const selectedTheme = event.target.value;
+        const currentTheme = themeStore.get();
+        themeStore.set(selectedTheme);
+        const main = document.getElementById("main");
+        console.log("Current theme", currentTheme);
+        console.log("Switching to theme:", selectedTheme);
+        main?.classList.remove("theme-" + currentTheme);
+        main?.classList.add("theme-" + selectedTheme);
+    }
+
+    // Add event listener after DOM is loaded
+    document.addEventListener("DOMContentLoaded", function () {
+        const selectElement = document.getElementById("theme-select");
+        if (selectElement) {
+            selectElement.addEventListener("change", onThemeSwitch);
+        }
+    });
+</script>

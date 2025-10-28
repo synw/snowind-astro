@@ -1,0 +1,6 @@
+title: sn-img2widget
+steps:
+  - action: readimg2lm
+  - task: sn-img-desc
+  - task: snhtml-img-think
+  - task: snhtml-code

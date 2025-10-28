@@ -4,14 +4,22 @@ import TheHeader from "../components/TheHeader.astro";
 import { Icon } from "astro-icon/components";
 import TheNavLinks from "../components/TheNavLinks.vue";
 import TheLogo from "../components/TheLogo.vue";
-import { theme, useMobileBack } from "../conf";
+import { useMobileBack } from "../conf";
+import { themeStore } from "../state";
 
-const { title, pageTitle, hideHeader, noPadding } = Astro.props;
+const { title, pageTitle, hideHeader, noPadding, extraPageCls, extraMainCls } =
+    Astro.props;
 const hideH = hideHeader ?? false;
-const pageCls = "theme-" + theme + " w-full h-full";
-let padCls = "background h-full w-full";
+let pageCls = "theme-" + themeStore.get() + " w-full h-full";
+if (extraPageCls) {
+    pageCls = pageCls + " " + extraPageCls;
+}
+let mainCls = "background h-full w-full";
 if (!noPadding) {
-    padCls = padCls + " p-3";
+    mainCls = mainCls + " p-3";
+}
+if (extraMainCls) {
+    mainCls = mainCls + " " + extraMainCls;
 }
 ---
 
@@ -34,7 +42,7 @@ if (!noPadding) {
                 </button>
             </div>
         </TheHeader>
-        <div class={padCls}>
+        <div class={mainCls}>
             <slot />
         </div>
     </div>

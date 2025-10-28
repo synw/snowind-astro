@@ -1,4 +1,6 @@
 ---
+import ThemeSwitcher from "./ThemeSwitcher.astro";
+
 const { hideHeader } = Astro.props;
 let cls = "w-full h-16 primary drop-shadow-lg";
 if (hideHeader) {
@@ -13,6 +15,7 @@ if (hideHeader) {
                 <slot name="logo" />
             </div>
             <div class="flex flex-grow items-center justify-end">
+                <ThemeSwitcher />
                 <slot name="links" />
             </div>
         </div>

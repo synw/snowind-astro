@@ -1,0 +1,6 @@
+name: snhtml-widget-uigen
+steps:
+  - action: readimg2lm
+  - task: sn-img-desc
+  - task: snhtml-uigen-img-think
+  - task: snhtml-uigen-code
