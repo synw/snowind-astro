@@ -10,17 +10,25 @@
 </template>
 
 <script setup lang="ts">
-import { useStore } from '@nanostores/vue';
-import { isDarkModeStore } from '../state';
 import MoonIcon from '../icons/MoonIcon.vue';
 import SunIcon from '../icons/SunIcon.vue';
-import { isMobileStore, toggleDarkMode } from '../state';
+import { ref } from 'vue';
+import { mobileBreakpoint } from '../conf.js';
 
-const dm = useStore(isDarkModeStore);
-const ism = useStore(isMobileStore);
+const dm = ref(false);
+const ism = window.innerWidth <= mobileBreakpoint;
 
 function toggle() {
-    toggleDarkMode();
-    document.location.reload()
+    dm.value = !dm.value;
+    console.log("Set dark mode to", dm.value);
+    localStorage.setItem("darkmode", dm.value.toString());
+    //const pt = document.getElementById("pagetop")!;
+    const t = document.getElementsByTagName("html")[0];
+    if (dm.value) {
+        t.classList.add("dark");
+    } else {
+        t.classList.remove("dark");
+    }
+    //self.location.reload()
 }
 </script>

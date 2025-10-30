@@ -1,10 +1,17 @@
 ---
 import { themes } from "../conf.js";
+import { themeStore } from "../state";
 ---
 
 <div>
     <select id="theme-select" class="p-2 border border-light rounded">
-        {themes.map((theme) => <option value={theme}>{theme}</option>)}
+        {
+            themes.map((theme) => (
+                <option value={theme} selected={themeStore.get() == theme}>
+                    {theme}
+                </option>
+            ))
+        }
     </select>
 </div>
 
@@ -15,11 +22,13 @@ import { themes } from "../conf.js";
         const selectedTheme = event.target.value;
         const currentTheme = themeStore.get();
         themeStore.set(selectedTheme);
-        const main = document.getElementById("main");
+        const t = document.getElementsByTagName("html")[0];
         console.log("Current theme", currentTheme);
         console.log("Switching to theme:", selectedTheme);
-        main?.classList.remove("theme-" + currentTheme);
-        main?.classList.add("theme-" + selectedTheme);
+        t?.classList.remove("theme-" + currentTheme);
+        t?.classList.add("theme-" + selectedTheme);
+        localStorage.setItem("theme", selectedTheme);
+        self.location.reload();
     }
 
     // Add event listener after DOM is loaded

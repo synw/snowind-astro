@@ -4,7 +4,7 @@
             <NavLinks></NavLinks>
             <ColorMode client:only></ColorMode>
         </div>
-        <div class="sm:flex sm:flex-row items-end hidden mr-5 justify-center" v-else>
+        <div class="sm:flex sm:flex-row items-end hidden mr-5 space-x-3 justify-center" v-else>
             <NavLinks></NavLinks>
             <ColorMode client:only></ColorMode>
         </div>

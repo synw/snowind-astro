@@ -15,7 +15,9 @@ if (hideHeader) {
                 <slot name="logo" />
             </div>
             <div class="flex flex-grow items-center justify-end">
-                <ThemeSwitcher />
+                <div class="mr-3">
+                    <ThemeSwitcher />
+                </div>
                 <slot name="links" />
             </div>
         </div>
@@ -25,7 +27,7 @@ if (hideHeader) {
         >
             <slot name="mobile-links" />
         </div>
-        <div class="flex items-center sm:hidden">
+        <div class="flex items-center sm:hidden mr-3">
             <slot name="menu-icon">
                 <button
                     class="text-4xl font-bold opacity-70 hover:opacity-100 duration-300 menu-toggle"

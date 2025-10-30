@@ -5,16 +5,15 @@ import { Icon } from "astro-icon/components";
 import TheNavLinks from "../components/TheNavLinks.vue";
 import TheLogo from "../components/TheLogo.vue";
 import { useMobileBack } from "../conf";
-import { themeStore } from "../state";
 
 const { title, pageTitle, hideHeader, noPadding, extraPageCls, extraMainCls } =
     Astro.props;
 const hideH = hideHeader ?? false;
-let pageCls = "theme-" + themeStore.get() + " w-full h-full";
+let pageCls = "w-full h-full";
 if (extraPageCls) {
     pageCls = pageCls + " " + extraPageCls;
 }
-let mainCls = "background h-full w-full";
+let mainCls = "h-full w-full";
 if (!noPadding) {
     mainCls = mainCls + " p-3";
 }
@@ -24,7 +23,7 @@ if (extraMainCls) {
 ---
 
 <RootLayout title={title}>
-    <div class={pageCls}>
+    <div id="pagetop" class={pageCls}>
         <TheHeader hideHeader={hideH}>
             <div slot="logo" class="ml-5">
                 <TheLogo

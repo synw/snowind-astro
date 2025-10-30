@@ -25,7 +25,7 @@
 import { ref } from 'vue';
 import { siteTitle } from '../conf';
 import BackIcon from '../icons/BackIcon.vue';
-import { mobileBreakpoint } from "../conf";
+import { mobileBreakpoint, langs } from "../conf";
 
 defineProps({
     pageTitle: {
@@ -37,5 +37,5 @@ defineProps({
 });
 
 const isMob = window.innerWidth <= mobileBreakpoint;
-const isHome = ref(window.location.pathname == "/");
+const isHome = ref(langs.map(v => "/"+v).includes(window.location.pathname));
 </script>

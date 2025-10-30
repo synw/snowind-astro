@@ -3,6 +3,7 @@ const siteTitle = "Snowind Astro";
 const mobileBreakpoint = 640;
 const useMobileBack = true;
 const themes = ["bluestar", "lightblue", "green-pink", "pink-black", "blue-yellow"];
+const langs = ["fr", "en"];
 
 export {
     theme,
@@ -10,4 +11,5 @@ export {
     mobileBreakpoint,
     useMobileBack,
     themes,
+    langs,
 }
