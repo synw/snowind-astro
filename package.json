@@ -1,8 +1,8 @@
 {
-  "name": "portfolio",
+  "name": "snowind-astro",
   "private": true,
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@agent-smith/apicli": "^0.0.4",
     "@agent-smith/jobs": "^0.0.12",
     "@astrojs/node": "^9.5.0",
     "@astrojs/tailwind": "^5.1.4",
