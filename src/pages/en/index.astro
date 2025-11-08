@@ -1,9 +1,13 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { siteTitle } from "../../conf";
+import Hero from "../../aiwidgets/Hero.astro";
+import EditAiComponent from "../../components/EditAiComponent.vue";
 ---
 
 <BaseLayout title={siteTitle} extraMainCls="container mx-auto">
+	<Hero />
+	<EditAiComponent client:only component="Hero.astro" />
 	<div class="mt-5">
 		<a href="/styleguide">Style guide</a>
 	</div>

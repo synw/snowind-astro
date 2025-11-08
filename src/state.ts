@@ -1,12 +1,10 @@
 import { atom } from 'nanostores';
 import { mobileBreakpoint, theme } from './conf.js';
 
-//const _isDarkMode = localStorage.getItem("darkmode") ?? "false";
-const _isDarkMode = false;
 const themeStore = atom(theme);
 const isDarkModeStore = atom(false);
-//const isMobileStore = atom(window.innerWidth <= mobileBreakpoint);
 const isMobileStore = atom(false);
+const isEditMode = atom(false);
 
 function toggleDarkMode() {
     console.log("Toggle dark mode");
@@ -19,5 +17,6 @@ export {
     themeStore,
     isDarkModeStore,
     isMobileStore,
+    isEditMode,
     toggleDarkMode,
 }

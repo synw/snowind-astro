@@ -1,9 +1,11 @@
 name: astro-component-create
 description: Create an Astro component using Snowind colors
 prompt: |-
-    Create an Astro component from these instructions:
+    Create an Astro component from this description:
 
+    ```
     {prompt}
+    ```
 
     Now let's write the code. Important: remember to ouptut only the html Astro component, not a full html page.
 template: 
@@ -23,7 +25,7 @@ template:
 
         For text color use: <div class="txt-colorname">
         For background and text colors use: <div class="colorname">
-        For a border color use: <div class="bord-colorname">
+        For a border color use: <div class="border bord-colorname">
 
         Examples:
 
@@ -42,7 +44,7 @@ template:
 
         - Use flexbox
         - Typography: avoid using title tag like h1 and p tags: use div with font size
-        - Output only the html fragment, not a full html page.
+        - Always use inline Tailwind classes, avoid <style> tags
         - Always use these semantic colors and Tailwindcss classes.
     stop:
         - "```"
@@ -59,3 +61,8 @@ inferParams:
     top_p: 0.80
     top_k: 20
     max_tokens: 28000
+variables:
+    optional:
+        filename:
+            description: The filename of the component (used for writing the component in a workflow)
+            type: string

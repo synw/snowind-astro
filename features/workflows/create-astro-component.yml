@@ -1,0 +1,4 @@
+name: create-astro-component
+steps:
+  - task: astro-component-create
+  - action: write-new-component
