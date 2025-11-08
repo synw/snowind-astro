@@ -1,8 +1,10 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import StyleGuide from "../../aiwidgets/StyleGuide.astro";
+import { siteTitle } from "../../conf";
 ---
 
-<BaseLayout title="Style guide" extraMainCls="container mx-auto">
-	<StyleGuide />
+<BaseLayout title={siteTitle} extraMainCls="container mx-auto">
+	<div class="mt-5">
+		<a href="/styleguide">Style guide</a>
+	</div>
 </BaseLayout>

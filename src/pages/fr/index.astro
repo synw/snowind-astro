@@ -1,15 +1,10 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { siteTitle } from "../../conf";
 ---
 
-<BaseLayout title="Index page">
-	<a href="/page1">Page 1</a>
+<BaseLayout title={siteTitle} extraMainCls="container mx-auto">
+	<div class="mt-5">
+		<a href="/styleguide">Style guide</a>
+	</div>
 </BaseLayout>
-
-<script>
-	console.log(window.navigator.languages || window.navigator.language);
-	const lang = window.navigator.languages?.[0].split("-")[0] ?? "fr";
-	console.log("Lang", lang);
-	console.log("Preferred Locale List:", Astro.preferredLocaleList);
-	
-</script>
