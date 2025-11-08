@@ -1,4 +1,0 @@
-name: sn-widget
-steps:
-  - "task": "snhtml-think"
-  - "task": "snhtml-code"

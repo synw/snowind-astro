@@ -1,0 +1,6 @@
+title: sn-img2widget
+steps:
+  - action: readimg2lm
+  - task: img-widget-desc
+  - task: html-implementation-plan
+  - task: html-code-from-plan

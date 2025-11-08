@@ -1,9 +1,9 @@
-name: sn-img-desc
-description: Run an inference query with a vision model and describe web component
+name: img-widget-desc
+description: Run an inference query with a vision model and describe a web component from an image
 prompt: |-
-    {prompt}Provide a very detailled description of all the elements in the image:
+    Provide a very detailled description of all the elements in the image:
     description of the element, position, content, colors and any useful info you
-    can provide
+    can provide. {prompt}
 template:
     system: |-
         You are an AI web developer assistant. Your task is to analyze an image that
@@ -11,12 +11,12 @@ template:
         need a detailled breakout of all the elements and content to help the developer to 
         implement it later.
 model:
-    name: minicpm-v:8b-2.6-q8_0
-    ctx: 32768
+    name: qwen4b-vl
+    ctx: 8192
     template: chatml
 inferParams:
-    top_k: 1.0
-    top_p: 1.0
-    min_p: 0.05
+    top_k: 20
+    top_p: 0.95
+    min_p: 0
     temperature: 0.2
-    max_tokens: 16384
+    max_tokens: 7500

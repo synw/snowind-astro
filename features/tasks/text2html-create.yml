@@ -1,17 +1,15 @@
-name: sna-uigen-think
-description: Create an implementation plan for an html widget using Snowind colors
+name: text2html-create
+description: Create an html widget using Snowind colors from text content
 prompt: |-
-    I have this component specification from a designer prototype:
+    Convert this to simple html:
 
     ```
     {prompt}
     ```
-
-    Please write a detailled implementation plan
 template: 
     system: |-
         You are an AI frontend programming assistant. Your task is to create html widgets
-        using Tailwind css 3. The Tailwind semantic colors plugin is available, here is how it works:
+        using Tailwind css. The Tailwind semantic colors plugin is available, here is how it works:
 
         <cheatset>
         The following semantic colors are available: 
@@ -23,9 +21,17 @@ template:
         - "light": a light color for text
         - "lighter": a very light color for text
 
-        For text color use: <div class="txt-[colorname]">
-        For background and text colors use: <div class="[colorname]">
-        For a border color use: <div class="bord-[colorname]">
+        To set background and text colors use: <div class="[colorname]">
+        To set text color use: <div class="txt-[colorname]">        
+        To set a border color use: <div class="bord-[colorname]">
+
+        Examples:
+
+        ```html
+        <div class="primary">A primary text color and background color</div>
+        <div class="txt-danger">A danger text color</div>        
+        <button class="secondary btn">A secondary colored button</div>
+        ```
         </cheatset>
 
         Instructions:
@@ -34,16 +40,17 @@ template:
         - Typography: avoid using title tag like h1 and p tags: use div with font size
         - Output only the html fragment, not a full html page.
         - Always use these semantic colors and Tailwindcss classes.
-        - Never use any other external libraries
+    stop:
+        - "```"
     assistant: |-
-        <|im_start|>think
+        Here is the html code:
+
+        ```html
+ctx: 16384
 model:
-    name: uigen:14b
-    ctx: 32768
+    name: qwencoder
     template: chatml
+
 inferParams:
-    top_p: 1
-    top_k: 1
-    min_p: 0.05
-    temperature: 0.4
-    max_tokens: 16384
+    temperature: 0
+    max_tokens: 15000

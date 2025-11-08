@@ -1,13 +1,13 @@
-name: swhtml
-description: Create an html widget using Snowind colors
+name: astro-component-edit
+description: Edit an Astro component using Snowind colors from a prompt
 prompt: |-
-    I have this implementation plan:
+    I have this Astro component:
 
+    ```astro
+    {component}
     ```
+
     {prompt}
-    ```
-
-    Now let's write the code according to the plan. Important: remember to ouptut only the html code fragment, not a whole html page.
 template: 
     system: |-
         You are an AI frontend programming assistant. Your task is to create html widgets
@@ -21,11 +21,13 @@ template:
         - "warning": a color for important actions
         - "danger": a color for dangerous actions
         - "light": a light color for text
+        - "semilight": a semi-light color for text
         - "lighter": a very light color for text
+        - "background": the background color for the page
 
         For text color use: <div class="txt-colorname">
         For background and text colors use: <div class="colorname">
-        For a border color use: <div class="bord-colorname">
+        For a border color use: <div class="border bord-colorname">
 
         Examples:
 
@@ -49,35 +51,20 @@ template:
     stop:
         - "```"
     assistant: |-
-        Here is the html code:
+        Here is the astro component code:
 
-        ```html
+        ```astro
+ctx: 16384
 model:
-    name: deepseek-coder-v2:16b-lite-instruct-q8_0
-    ctx: 16384
-    template: deepseek2
-models:
-    xxsmall:
-        name: qwen2.5-coder:1.5b-instruct-q8_0
-        ctx: 16384
-        template: chatml
-    xsmall:
-        name: qwen2.5-coder:3b-instruct-q8_0
-        ctx: 16384
-        template: chatml
-    small:
-        name: qwen2.5-coder:7b-instruct-q8_0
-        ctx: 16384
-        template: chatml
-    medium:
-        name: qwen2.5-coder:14b-instruct-q8_0
-        ctx: 16384
-        template: chatml
-    large:
-        name: Qwen2.5-Coder-32B-Instruct-IQ4_XS # koboldcpp
-        ctx: 16384
-        template: chatml
+    name: uigen30b
+    template: chatml
 inferParams:
     temperature: 0.2
-    top_p: 0.95
-    max_tokens: 8192
+    top_p: 0.80
+    top_k: 20
+    max_tokens: 14500
+variables:
+    required:
+        component:
+            type: string
+            description: the component code to use

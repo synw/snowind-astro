@@ -4,10 +4,11 @@
             Edit component {{ component }}
         </div>
         <div>
-            <textarea v-model="_data" :rows="rows" class="w-full overflow-y-visible focus:ring-0 focus:border-lighter" />
+            <textarea v-model="_data" :rows="rows"
+                class="w-full overflow-y-visible focus:ring-0 focus:border-lighter" />
         </div>
         <div class="flex flex-row justify-end space-x-3 w-full">
-            <div v-if="nTokens>0" class="txt-semilight">{{ nTokens }} tokens</div>
+            <div v-if="nTokens > 0" class="txt-semilight">{{ nTokens }} tokens</div>
             <div class="flex-grow flex justify-end space-x-3">
                 <button class="warning btn px-4 py-2 rounded" @click="onRevert()">Revert</button>
                 <button class="success btn px-4 py-2 rounded" @click="onSubmit()">Submit</button>
@@ -37,7 +38,7 @@ const data = "";
 const maxlines = 8;
 const _data = ref(data);
 const resp = ref("");
-const componentPath = projectCodePath+"/src/aiwidgets/"+props.component;
+const componentPath = projectCodePath + "/src/aiwidgets/" + props.component;
 const nTokens = ref(0);
 
 const api = useServer({
@@ -52,7 +53,7 @@ async function onSubmit() {
     nTokens.value = 0;
     resp.value = "";
     console.log("Prompt:", _data.value);
-    await api.executeCmd("astro-component", [componentPath, _data.value]);
+    await api.executeCmd("edit-astro-component", [componentPath, _data.value]);
 }
 
 async function onRevert() {
@@ -61,10 +62,10 @@ async function onRevert() {
 }
 
 const rows = computed(() => {
-  const nlines = _data.value.split("\n").length;
-  if (nlines > maxlines) {
-    return maxlines
-  }
-  return nlines
+    const nlines = _data.value.split("\n").length;
+    if (nlines > maxlines) {
+        return maxlines
+    }
+    return nlines
 });
 </script>

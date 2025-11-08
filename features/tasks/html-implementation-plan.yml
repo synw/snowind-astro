@@ -1,11 +1,13 @@
-name: sna-uigen-think
-description: Create an implementation plan for an html widget using Snowind colors
+name: html-implementation-plan
+description: Create an implementation plan for an html widget using Snowind colors from a specification
 prompt: |-
-    Convert this to html:
+    I have this component specification from a designer prototype:
 
     ```
     {prompt}
     ```
+
+    Please write a short implementation plan. Answer with only a plan, we will implement the code later.
 template: 
     system: |-
         You are an AI frontend programming assistant. Your task is to create html widgets
@@ -35,13 +37,13 @@ template:
         - Never use any other external libraries
     stop:
         - "```"
-    assistant: |-
-        <|im_start|>think
+ctx: 16384
 model:
-    name: uigen:14b
-    ctx: 16384
+    name: qwen30b-thinking
     template: chatml
 inferParams:
-    top_p: 1
-    temperature: 0.5
-    max_tokens: 8192
+    top_p: 0.95
+    top_k: 20
+    min_p: 0
+    temperature: 0.2
+    max_tokens: 15000

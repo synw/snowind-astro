@@ -1,18 +1,17 @@
-name: swhtmlthink
-description: Create an implementation plan for an html widget using Snowind colors
+name: html-code-from-plan
+description: Create an html widget using Snowind colors from an implementation plan
 prompt: |-
-    I would like to convert this to html:
+    I have this implementation plan:
 
     ```
     {prompt}
     ```
 
-    Think about it and provide your final recommandations inside a <recommandations> tag
+    Now let's write the code according to the plan. Important: remember to ouptut only the html code fragment, not a whole html page.
 template: 
     system: |-
-        You are an AI frontend programming assistant. Your task is to help creating an 
-        html widget. You provide recommandations and an concise implementation plan that will be used by
-        another AI to write the code. We use Tailwind css 3. The Tailwind semantic colors plugin is available, here is how it works:
+        You are an AI frontend programming assistant. Your task is to create html widgets
+        using Tailwind css. The Tailwind semantic colors plugin is available, here is how it works:
 
         <cheatset>
         The following semantic colors are available: 
@@ -32,11 +31,12 @@ template:
 
         ```html
         <!-- div blocks -->
-        <div class="primary">A primary text color and background color</div>
+        <div class="primary">A primary text and background colored block</div>
         <div class="txt-secondary">A secondary text color</div>
         <!-- buttons -->
         <button class="danger btn">Delete</button>
         <button class="success btn">Save</button>
+        <button class="light btn">Action</button>
         ```
         </cheatset>
 
@@ -44,23 +44,21 @@ template:
 
         - Use flexbox
         - Typography: avoid using title tag like h1 and p tags: use div with font size
+        - Output only the html fragment, not a full html page.
         - Always use these semantic colors and Tailwindcss classes.
-        - Never use any other external libraries
+    stop:
+        - "```"
+    assistant: |-
+        Here is the html code:
+
+        ```html
+ctx: 32768
 model:
-    name: qwq:latest
-    ctx: 16384
+    name: qwencoder
     template: chatml
-models:
-    xxsmall:
-        name: deepscaler:1.5b-preview-q8_0
-        ctx: 16384
-        template: deepseek3
-    xsmall:
-        name: smallthinker:3b-preview-q8_0
-        ctx: 16384
-        template: chatml
 inferParams:
+    temperature: 0.1
     top_p: 0.95
-    top_k: 40
-    temperature: 0.6
-    max_tokens: 8192
+    top_k: 20
+    min_p: 0
+    max_tokens: 28000

@@ -1,5 +1,5 @@
-name: astro-component
+name: edit-astro-component
 steps:
   - action: file-to-component
-  - task: lm4-component
+  - task: astro-component-edit
   - action: write-component

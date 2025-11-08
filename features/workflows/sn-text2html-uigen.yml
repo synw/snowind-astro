@@ -1,4 +1,0 @@
-name: sn-text2html-uigen
-steps:
-  - task: snhtml-uigen-think
-  - task: snhtml-uigen-code
