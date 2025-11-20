@@ -1,0 +1,10 @@
+{
+  "name": "snowind-astro-features",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "dependencies": {
+    "@agent-smith/apicli": "^0.0.4",
+    "@agent-smith/cli": "^0.0.91"
+  }
+}

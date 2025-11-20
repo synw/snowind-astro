@@ -1,40 +1,53 @@
 ---
 // Hero component for Snowind Astro template
+import { translations } from "../i18n/components/Hero.ts";
+import { getLangFromUrl, useTranslations } from "../i18n/utils.ts";
+
+const lang = getLangFromUrl(translations, Astro.currentLocale);
+const t = useTranslations(translations, lang);
 ---
 
 <div
     class="hero text-light flex flex-col items-center justify-center p-8 md:p-16"
 >
     <div class="max-w-4xl text-center">
-        <div class="txt-semilight text-lg mb-4">Snowind Astro Template</div>
+        <div class="txt-semilight text-lg mb-4">{t("hero.snowind")}</div>
         <h1 class="text-4xl md:text-6xl font-bold mb-6 txt-primary">
-            AI-Powered Static Site Generator
+            {t("hero.title")}
         </h1>
         <p class="txt-primary text-xl mb-8">
-            Designed to create beautiful static websites with the help of AI
+            {t("hero.subtitle")}
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div class="bg-light rounded-lg p-6 shadow-lg secondary">
+            <div
+                class="bg-light rounded-lg p-6 shadow-lg lighter border bord-light"
+            >
                 <div class="txt-primary text-2xl mb-2">🌐</div>
-                <h3 class="text-xl font-semibold mb-2">Multilingual Sites</h3>
+                <h3 class="text-xl font-semibold mb-2">
+                    {t("hero.multilingual")}
+                </h3>
                 <p class="txt-semilight">
-                    Create websites in multiple languages
+                    {t("hero.multilingual_desc")}
                 </p>
             </div>
 
-            <div class="bg-light rounded-lg p-6 shadow-lg secondary">
+            <div
+                class="bg-light rounded-lg p-6 shadow-lg lighter border bord-light"
+            >
                 <div class="txt-primary text-2xl mb-2">🎨</div>
-                <h3 class="text-xl font-semibold mb-2">Theme Picker</h3>
+                <h3 class="text-xl font-semibold mb-2">{t("hero.themes")}</h3>
                 <p class="txt-semilight">
-                    Choose from a variety of scss themes
+                    {t("hero.themes_desc")}
                 </p>
             </div>
 
-            <div class="bg-light rounded-lg p-6 shadow-lg secondary">
+            <div
+                class="bg-light rounded-lg p-6 shadow-lg lighter border bord-light"
+            >
                 <div class="txt-primary text-2xl mb-2">🔧</div>
-                <h3 class="text-xl font-semibold mb-2">AI Driven Edition</h3>
-                <p class="txt-semilight">Edit components with AI assistance</p>
+                <h3 class="text-xl font-semibold mb-2">{t("hero.ai")}</h3>
+                <p class="txt-semilight">{t("hero.ai_desc")}</p>
             </div>
         </div>
 
@@ -44,7 +57,7 @@
                 target="_blank"
                 class="success btn px-6 py-3 rounded-lg font-semibold hover:bg-success/90 transition"
             >
-                View on Github
+                {t("hero.github")}
             </a>
         </div>
     </div>

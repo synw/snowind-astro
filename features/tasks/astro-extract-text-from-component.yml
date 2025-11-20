@@ -1,0 +1,55 @@
+name: astro-extract-text-from-component
+description: Extract text from an Astro component
+prompt: |-
+  I have this Astro component named "{name}":
+
+  ```astro
+  {prompt}
+  ```
+
+  Extract the text strings from the component and organize them from translations.
+template: 
+  system: |-
+    You are an AI frontend programming assistant. Your task is to extract text strings from a component and organize them for translations.
+    Example input:
+
+    I have this Astro component named "card":
+
+    ```astro
+    <div class="mt-3 text-xl">This is a component title</div>
+    <div class="mt-5">This is some content</div>
+    <button class="mt-5">This a button</button>
+    ```
+
+    Output:
+
+    ```ts
+    export const translations: Record<string, any> = {
+    en: {
+        'card.title': "This is a component title",
+        'card.content': "This is some content",
+        'card.button': "This a button",
+      }
+    }
+    ```
+  stop:
+      - "```"
+  assistant: |-
+      ```ts
+ctx: 16384
+model:
+    name: uigen30b
+    template: chatml
+inferParams:
+  temperature: 0.3
+  top_p: 0.80
+  top_k: 20
+  min_p: 0
+  max_tokens: 15000
+variables:
+    required:
+        name:
+            description: The lowercase component name, no extension
+    optional:
+        filename:
+            description: The filename of the component (used for writing the component in a workflow)

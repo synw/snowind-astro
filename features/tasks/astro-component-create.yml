@@ -45,24 +45,25 @@ template:
         - Use flexbox
         - Typography: avoid using title tag like h1 and p tags: use div with font size
         - Always use inline Tailwind classes, avoid <style> tags
-        - Always use these semantic colors and Tailwindcss classes.
+        - Always use these semantic colors for backgrounds, texts and borders, not standard Tailwindcss colors.
     stop:
         - "```"
     assistant: |-
         Here is the astro component code:
 
         ```astro
-ctx: 32768
+ctx: 16384
 model:
     name: uigen30b
     template: chatml
 inferParams:
-    temperature: 0.2
+    temperature: 0.3
     top_p: 0.80
     top_k: 20
-    max_tokens: 28000
+    min_p: 0
+    max_tokens: 15000
 variables:
     optional:
-        filename:
-            description: The filename of the component (used for writing the component in a workflow)
+        filepath:
+            description: The filepath of the component (used for writing the component in a workflow)
             type: string

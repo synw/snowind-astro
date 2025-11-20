@@ -1,0 +1,27 @@
+name: astro-i18n
+description: Translate a string
+prompt: |-
+  Translate this text to {lang}
+
+  ```
+  {prompt}
+  ```
+
+  Important: return only the translated text
+template: 
+  system: |-
+    You are an AI assistant in charge of translations.
+ctx: 16384
+model:
+    name: lfm8b
+    template: lfm
+inferParams:
+  temperature: 0.3
+  top_p: 0.80
+  top_k: 20
+  min_p: 0
+  max_tokens: 15000
+variables:
+  required:
+    lang:
+      description: The string to translate

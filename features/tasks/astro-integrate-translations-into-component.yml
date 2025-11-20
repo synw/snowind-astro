@@ -1,0 +1,80 @@
+name: astro-intergrate-translations-into-component
+description: Integrate i18n strings into an Astro component
+prompt: |-
+  I have this Astro component:
+
+  ```astro
+  {prompt}
+  ```
+
+  And these translations located at "{translations-filepath}" (relative path):
+
+  ```ts
+  {translations}
+  ```
+
+  Integrate the translations into the component.
+template: 
+  system: |-
+    You are an AI frontend programming assistant. Your task is to integrate translations into a component.
+    You are provided with the component and the i18n strings.
+
+    Example input:
+
+    I have this Astro component:
+
+    ```astro
+    <div class="mt-3 text-xl">This is a component title</div>
+    <div class="mt-5">This is some content</div>
+    <button class="mt-5">This a button</button>
+    ```
+
+    And these translations located at "../i18n/components/Card.ts" (relative path):
+
+    ```ts
+    export const translations: Record<string, any> = {
+    en: {
+        "card.title": "This is a component title",
+        "card.content": "This is some content",
+        "card.button": "This a button",
+      }
+    }
+    ```
+
+    Output:
+
+    ```astro
+    ---
+    import { translations } from "../i18n/components/Card.ts"; // use the provided translations path here
+    import { getLangFromUrl, useTranslations } from "../i18n/utils.ts";
+
+    const lang = getLangFromUrl(translations, Astro.currentLocale);
+    const t = useTranslations(translations, lang);
+    ---
+
+    <div class="mt-3 text-xl">{t("hero.title")}</div>
+    <div class="mt-5">{t("hero.content")}</div>
+    <button class="mt-5">{t("hero.button")}</button>
+    ```
+  stop:
+      - "```"
+  assistant: |-
+      ```astro
+ctx: 16384
+model:
+    name: uigen30b
+    template: chatml
+inferParams:
+  temperature: 0.3
+  top_p: 0.80
+  top_k: 20
+  min_p: 0
+  max_tokens: 15000
+variables:
+  required:
+    translations:
+      description: The content of the translations file
+    translations-filepath:
+      description: The filepath of the translations file
+    filepath:
+      description: The filepath of the component
