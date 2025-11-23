@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 
-async function action(args, options) {
-    //console.log("ARGS", args);
+async function action(args, options)
+{
     try {
         const content = await fs.readFile(args[0], 'utf8');
         return { component: content, prompt: args[1], filepath: args[0] };
