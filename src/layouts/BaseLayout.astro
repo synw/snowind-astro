@@ -2,18 +2,19 @@
 import RootLayout from "./RootLayout.astro";
 import TheHeader from "../components/TheHeader.astro";
 import { Icon } from "astro-icon/components";
-import TheNavLinks from "../components/TheNavLinks.vue";
+import TheNavLinks from "../components/TheNavLinks.astro";
 import TheLogo from "../components/TheLogo.vue";
 import { useMobileBack } from "../conf";
 
-const { title, pageTitle, hideHeader, noPadding, extraPageCls, extraMainCls } =
+const { title, hideHeader, hideFooter, noPadding, extraPageCls, extraMainCls } =
     Astro.props;
 const hideH = hideHeader ?? false;
-let pageCls = "w-full h-full";
+const hideF = hideFooter ?? false;
+let pageCls = "w-full h-full flex flex-col";
 if (extraPageCls) {
     pageCls = pageCls + " " + extraPageCls;
 }
-let mainCls = "h-full w-full";
+let mainCls = "h-full w-full pt-16 flex flex-col";
 if (!noPadding) {
     mainCls = mainCls + " p-3";
 }
@@ -22,21 +23,18 @@ if (extraMainCls) {
 }
 ---
 
-<RootLayout title={title}>
-    <div id="pagetop" class={pageCls}>
+<RootLayout title={title} hideFooter={hideF}>
+    <div class={pageCls}>
         <TheHeader hideHeader={hideH}>
             <div slot="logo" class="ml-5">
                 <TheLogo
                     client:only
-                    pageTitle={pageTitle}
+                    pageTitle={title}
                     mobileBack={useMobileBack}
                 />
             </div>
-            <TheNavLinks isMobile="1" slot="mobile-links" client:only />
-            <TheNavLinks isMobile="" slot="links" client:only />
-            <!-- this slog is optional -->
             <div slot="menu-icon">
-                <button class="btn menu-toggle">
+                <button class="btn menu-toggle sm:hidden">
                     <Icon name="menu" size={"1.8rem"} />
                 </button>
             </div>

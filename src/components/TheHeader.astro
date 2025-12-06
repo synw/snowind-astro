@@ -1,10 +1,12 @@
 ---
-import ThemeSwitcher from "./ThemeSwitcher.astro";
+import TheNavLinks from "./TheNavLinks.astro";
 
 const { hideHeader } = Astro.props;
-let cls = "w-full h-16 primary drop-shadow-lg";
+let cls = "w-full h-16 drop-shadow-lg fixed z-50";
 if (hideHeader) {
-    cls = cls + " hidden";
+    cls = cls + " transparent text-white";
+} else {
+    cls = cls + " primary";
 }
 ---
 
@@ -14,18 +16,17 @@ if (hideHeader) {
             <div>
                 <slot name="logo" />
             </div>
-            <div class="flex flex-grow items-center justify-end">
-                <div class="mr-3">
-                    <ThemeSwitcher />
-                </div>
-                <slot name="links" />
+            <div
+                class="hidden sm:flex flex-row flex-grow items-center justify-end h-full"
+            >
+                <TheNavLinks />
             </div>
         </div>
         <div
             id="menu"
-            class="hidden w-full fixed top-16 right-0 p-5 secondary z-50 slide-y slideup"
+            class="hidden w-full fixed top-16 right-0 p-5 secondary slide-y slideup"
         >
-            <slot name="mobile-links" />
+            <TheNavLinks />
         </div>
         <div class="flex items-center sm:hidden mr-3">
             <slot name="menu-icon">
@@ -44,6 +45,7 @@ if (hideHeader) {
         let isMenuOpened = false;
         const menu = document.getElementById("menu")!;
         const toggleButton = document.querySelector(".menu-toggle")!;
+        const im1 = document.querySelector(".hide-for-menu");
 
         const handleClickOutside = (event: MouseEvent) => {
             // Only proceed if the target is a Node
@@ -61,11 +63,17 @@ if (hideHeader) {
         const toggleMenu = () => {
             //menu.classList.toggle("hidden");
             if (!isMenuOpened) {
+                if (im1) {
+                    im1.classList.add("opacity-0");
+                }
                 menu.classList.remove("hidden");
                 menu.classList.remove("slideup");
                 menu.classList.add("slidedown");
                 document.addEventListener("click", handleClickOutside);
             } else {
+                if (im1) {
+                    im1.classList.remove("opacity-0");
+                }
                 menu.classList.remove("slidedown");
                 menu.classList.add("slideup");
                 document.removeEventListener("click", handleClickOutside);

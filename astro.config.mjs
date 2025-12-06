@@ -5,6 +5,7 @@ import tailwind from '@astrojs/tailwind';
 import icon from "astro-icon";
 import vue from '@astrojs/vue';
 import node from '@astrojs/node';
+import { defaultLanguage, languages } from './src/conf';
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,8 +15,8 @@ export default defineConfig({
   }),
   integrations: [tailwind(), vue(), icon()],
   i18n: {
-    locales: ["fr", "en"],
-    defaultLocale: "fr",
+    locales: Object.keys(languages),
+    defaultLocale: defaultLanguage,
     routing: {
       prefixDefaultLocale: true,
       redirectToDefaultLocale: false,

@@ -1,5 +1,5 @@
 <template>
-    <a href="/">
+    <a :href="'/' + pagePath">
         <div class="flex flex-row items-center">
             <div v-if="!mobileBack || !isMob">
                 <img src="/logo.png" alt="" />
@@ -14,8 +14,8 @@
                     </a>
                 </template>
             </div>
-            <div class="ml-3 text-xl">
-                {{ pageTitle ? pageTitle : siteTitle }}
+            <div class="ml-3 text-2xl">
+                {{ pageTitle }}
             </div>
         </div>
     </a>
@@ -23,9 +23,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { siteTitle } from '../conf';
 import BackIcon from '../icons/BackIcon.vue';
-import { mobileBreakpoint, langs } from "../conf";
+import { mobileBreakpoint, languages } from "../conf";
 
 defineProps({
     pageTitle: {
@@ -37,5 +36,7 @@ defineProps({
 });
 
 const isMob = window.innerWidth <= mobileBreakpoint;
-const isHome = ref(langs.map(v => "/"+v).includes(window.location.pathname));
+const isHome = ref(Object.keys(languages).map(v => "/" + v).includes(window.location.pathname));
+const locPath = location.pathname.split('/');
+const pagePath = locPath.slice(1, 2)[0];
 </script>

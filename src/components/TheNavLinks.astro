@@ -1,0 +1,11 @@
+---
+import NavLinks from "./NavLinks.astro";
+import ColorMode from "./ColorMode.vue";
+---
+
+<div
+    class="flex flex-col space-x-3 items-start sm:flex sm:flex-row sm:items-center sm:mr-5 sm:space-x-3 sm:justify-end h-full"
+>
+    <NavLinks />
+    <ColorMode client:only />
+</div>

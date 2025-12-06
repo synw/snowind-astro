@@ -1,5 +1,5 @@
 export const translations: Record<string, any> = {
-    en: {
+    "en": {
         "hero.snowind": "Snowind Astro Template",
         "hero.title": "AI-Powered Static Site Generator",
         "hero.subtitle": "Designed to create beautiful static websites with the help of AI",

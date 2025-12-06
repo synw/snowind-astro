@@ -1,0 +1,29 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils.ts";
+import { translations } from "../i18n/components/nav.ts";
+import { navLinks } from "../conf.ts";
+import LangSwitcher from "./LangSwitcher.vue";
+
+// Get the current language from Astro's locale
+const lang = getLangFromUrl(translations, Astro.currentLocale);
+const t = useTranslations(translations, lang);
+
+// Get the current page path from the URL
+const pagePath = Astro.url.pathname.split("/")[3];
+---
+
+<div
+    class="flex flex-col space-y-3 items-start sm:flex sm:flex-row sm:items-center sm:mr-5 sm:space-x-3 sm:space-y-0 sm:justify-end h-full"
+>
+    {
+        navLinks.map((navLink) => (
+            <a
+                href={`/${lang}/${navLink}`}
+                class={`btn menu-link ${pagePath === navLink ? "txt-semilight" : ""}`}
+            >
+                {t(navLink)}
+            </a>
+        ))
+    }
+    <LangSwitcher client:only />
+</div>

@@ -1,24 +1,36 @@
 ---
+import TheFooter from "../components/TheFooter.astro";
+import { theme, siteTitle } from "../conf";
 import "../scss/main.scss";
-import { themeStore } from "../state";
 
-const { title } = Astro.props;
-const pageRootCss = "h-svh w-full";
+const { title, hideFooter } = Astro.props;
+const hideF = hideFooter ?? false;
+const pageRootCss = "min-h-svh w-full";
+const mainTitle = siteTitle + " - " + title;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class={"theme-" + theme}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<title>{mainTitle}</title>
 	</head>
 	<body>
 		<div id="pageroot" class={pageRootCss}>
 			<slot />
 		</div>
+		{
+			hideF ? (
+				""
+			) : (
+				<div class="p-20 txt-light">
+					<TheFooter />
+				</div>
+			)
+		}
 	</body>
 </html>
 
@@ -38,11 +50,14 @@ const pageRootCss = "h-svh w-full";
 </style>
 
 <script>
+	import { theme } from "../conf";
+
 	const t = document.getElementsByTagName("html")[0];
 	//const pr = document.getElementById("pageroot")!;
-	const theme = localStorage.getItem("theme");
+	const stheme = localStorage.getItem("theme");
 	const dm = localStorage.getItem("darkmode");
-	t.classList.add("theme-" + theme);
+	t.classList.remove("theme-" + theme);
+	t.classList.add("theme-" + stheme);
 	if (dm == "true") {
 		t.classList.add("dark");
 	}

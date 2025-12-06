@@ -1,11 +1,10 @@
-export const languages = {
-    en: 'English',
-    fr: 'Français',
-};
+import { languages as ln } from "../conf";
+
+export const languages = ln;
 
 export const defaultLang = 'en';
 
-export function getLangFromUrl(translations: Record<string, any>, lang: string | undefined) {
+export function getLangFromUrl(translations: Record<string, any>, lang?: string) {
     const _lang = lang ?? defaultLang;
     if (_lang in translations) return lang as keyof typeof translations;
     return defaultLang;
