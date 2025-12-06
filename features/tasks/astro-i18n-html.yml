@@ -1,13 +1,13 @@
 name: astro-i18n
-description: Translate a string
+description: Translate a html string
 prompt: |-
-  Translate this text to {lang}
+  Translate this html text to {lang}
 
   ```
   {prompt}
   ```
 
-  Important: return only the {lang} translated text
+  Important: return only the translated html translated to {lang}. Preserve the tags
 template: 
   system: |-
     You are an AI assistant in charge of translations.
@@ -24,4 +24,4 @@ inferParams:
 variables:
   required:
     lang:
-      description: The string to translate
+      description: The html string to translate
