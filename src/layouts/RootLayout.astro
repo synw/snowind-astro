@@ -53,8 +53,7 @@ const mainTitle = siteTitle + " - " + title;
 	import { theme } from "../conf";
 
 	const t = document.getElementsByTagName("html")[0];
-	//const pr = document.getElementById("pageroot")!;
-	const stheme = localStorage.getItem("theme");
+	const stheme = localStorage.getItem("theme") ?? theme;
 	const dm = localStorage.getItem("darkmode");
 	t.classList.remove("theme-" + theme);
 	t.classList.add("theme-" + stheme);

@@ -3,6 +3,11 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { siteTitle } from "../../conf";
 import Hero from "../../aiwidgets/Hero.astro";
 import EditAiComponent from "../../components/EditAiComponent.vue";
+import { getStaticPathsForLang } from "../../paths";
+
+export async function getStaticPaths() {
+	return getStaticPathsForLang();
+}
 ---
 
 <BaseLayout title={siteTitle} extraMainCls="container mx-auto">

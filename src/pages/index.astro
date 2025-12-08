@@ -3,15 +3,9 @@ import EmptyLayout from "../layouts/EmptyLayout.astro";
 ---
 
 <script>
-    import { defaultLang } from "../i18n/utils";
-    import { langStore } from "../state";
+    import { detectLanguage } from "../i18n/utils";
 
-    const slang = localStorage.getItem("lang") || "";
-    if (slang != langStore.get()) {
-        langStore.set(slang);
-    }
-    const lang = langStore.get() || defaultLang;
-    window.location.href = "/" + lang;
+    detectLanguage();
 </script>
 
 <EmptyLayout />

@@ -1,5 +1,10 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getStaticPathsForLang } from "../../paths";
+
+export async function getStaticPaths() {
+    return getStaticPathsForLang();
+}
 ---
 
 <BaseLayout title="Page 1" extraMainCls="container mx-auto">

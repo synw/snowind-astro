@@ -5,7 +5,7 @@
         </button>
 
         <!-- Modal Overlay -->
-        <div v-show="isModalOpen" class="fixed top-[28rem] inset-0 flex items-center justify-center z-50 p-4"
+        <div v-show="isModalOpen === true" class="fixed top-[28rem] inset-0 flex items-center justify-center z-50 p-4"
             @click="closeModal">
             <!-- Modal Content -->
             <div class="bg-white dark:bg-gray-800  max-h-svh overflow-auto rounded-xl shadow-xl w-full max-w-md transform transition-all duration-300 ease-in-out"
@@ -18,7 +18,7 @@
                             :class="{ 'bg-blue-100 dark:bg-blue-900': code === lang }" @click="selectLanguage(code)">
                             <span class="text-3xl mb-1">{{ langData.flag }}</span>
                             <span class="text-sm font-medium text-gray-700 dark:text-gray-200">{{ langData.name
-                            }}</span>
+                                }}</span>
                         </button>
                     </div>
                 </div>
@@ -36,12 +36,17 @@
 
 <script setup lang="ts">
 import { languages } from '../conf';
-import { defaultLang } from '../i18n/utils';
 import { langStore } from '../state';
-import { onBeforeMount, ref } from 'vue';
+import { ref } from 'vue';
 
-const current = langStore.get();
-let lang = current.length > 0 ? current : defaultLang;
+const props = defineProps({
+    urllang: {
+        type: String,
+        required: true
+    }
+})
+
+let lang = props.urllang;
 
 const isModalOpen = ref(false);
 
@@ -59,14 +64,4 @@ const selectLanguage = (code: string) => {
     isModalOpen.value = false;
     self.location.href = self.location.href.replace(lang, code);
 };
-
-function init() {
-    if (current.length == 0) {
-        const slang = localStorage.getItem("lang") || defaultLang;
-        langStore.set(slang);
-        lang = slang
-    }
-}
-
-onBeforeMount(() => init())
 </script>

@@ -25,5 +25,5 @@ const pagePath = Astro.url.pathname.split("/")[3];
             </a>
         ))
     }
-    <LangSwitcher client:only />
+    <LangSwitcher urllang={lang} client:only />
 </div>
