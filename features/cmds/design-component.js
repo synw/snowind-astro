@@ -1,9 +1,10 @@
 import { Command } from "commander";
 import select from '@inquirer/select';
-import {
+import
+{
     executeWorkflow,
     executeAction,
-    initState,
+    init,
     allOptions,
     parseCommandArgs,
 } from "@agent-smith/cli";
@@ -21,9 +22,10 @@ const choices = [
     }
 ];
 
-async function runCmd(args, options) {
-    await initState();
-    await executeWorkflow("astro-component", args, options);
+async function runCmd(args, options)
+{
+    await init();
+    await executeWorkflow("create-astro-component", args, options);
     const answer = await select({
         message: 'Select an action',
         default: "keep",
@@ -40,7 +42,8 @@ async function runCmd(args, options) {
 const cmd = new Command("design-component")
     .arguments("[args...]")
     .description("Design an Astro component: arguments: component path, prompt")
-    .action((..._args) => {
+    .action((..._args) =>
+    {
         const { args, options } = parseCommandArgs(_args)
         runCmd(args, options)
     });

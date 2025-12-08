@@ -7,7 +7,7 @@ prompt: |-
   {prompt}
   ```
 
-  Extract the text strings from the component and organize them from translations.
+  Extract the text strings from the component and organize them for translations.
 template: 
   system: |-
     You are an AI frontend programming assistant. Your task is to extract text strings from a component and organize them for translations.
@@ -25,11 +25,11 @@ template:
 
     ```ts
     export const translations: Record<string, any> = {
-    en: {
-        'card.title': "This is a component title",
-        'card.content': "This is some content",
-        'card.button': "This a button",
-      }
+        "en": {
+            "card.title": "This is a component title",
+            "card.content": "This is some content",
+            "card.button": "This a button",
+          }
     }
     ```
   stop:
@@ -38,7 +38,7 @@ template:
       ```ts
 ctx: 16384
 model:
-    name: uigen30b
+    name: qwencoder
     template: chatml
 inferParams:
   temperature: 0.3
