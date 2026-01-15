@@ -53,7 +53,7 @@ Replace `public/logo.png` and `public/favicon.ico` by yours.
 
 1. **Change the theme**
 
-   Modify the `theme` variable in `src/conf.ts` to switch between themes. Available themes are `default`, `bluestar`, and `lightblue`.
+   Modify the `theme` variable in `src/conf.ts` to switch between themes. See the scsss folder for available themes.
 
    ```ts
    const theme = "bluestar";
@@ -85,14 +85,10 @@ Replace `public/logo.png` and `public/favicon.ico` by yours.
 
 2. **Link to the new page**
 
-   Add a link to the new page in `src/components/TheNavLinks.vue`.
+   Add a link to the new page in `conf.ts`.
 
-   ```vue
-   <template>
-       <a class="btn menu-link" href="/about">About</a>
-       <a class="btn menu-link" href="/page1">Page 1</a>
-       <a class="btn menu-link" href="#">Link2</a>
-   </template>
+   ```ts
+   const navLinks = ["about"];
    ```
 
 ### Building for production
