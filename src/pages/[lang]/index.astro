@@ -8,11 +8,12 @@ import { getStaticPathsForLang } from "../../paths";
 export async function getStaticPaths() {
 	return getStaticPathsForLang();
 }
+const isDev = import.meta.env.MODE === "development";
 ---
 
 <BaseLayout title={siteTitle} extraMainCls="container mx-auto">
 	<Hero />
-	<EditAiComponent client:only component="Hero.astro" />
+	{isDev && <EditAiComponent client:only component="Hero.astro" />}
 	<div class="mt-5">
 		<a href="/styleguide">Style guide</a>
 	</div>
