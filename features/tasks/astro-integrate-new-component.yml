@@ -1,0 +1,21 @@
+description: Integrate a new component in a page
+ctx: 8942
+prompt: |-
+    {prompt}
+model:
+  name: qwen4b
+  template: chatml-tools
+inferParams:
+    top_k: 20
+    top_p: 0.95
+    min_p: 0
+    temperature: 0.4
+mcp:
+  filesystem:
+    command: npx
+    arguments:
+      - "-y"
+      - "@modelcontextprotocol/server-filesystem"
+    tools:
+      - list_directory
+      - read_text_file?

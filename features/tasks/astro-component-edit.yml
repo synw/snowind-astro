@@ -56,7 +56,7 @@ template:
         ```astro
 ctx: 16384
 model:
-    name: uigen30b
+    name: uigenx
     template: chatml
 inferParams:
     temperature: 0.2

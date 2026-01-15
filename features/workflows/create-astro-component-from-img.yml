@@ -1,0 +1,5 @@
+name: create-astro-component-from-img
+steps:
+  - adaptater: new-component-img
+  - task: astro-component-create-from-img
+  #- action: write-new-component

@@ -1,22 +1,32 @@
 name: img-widget-desc
 description: Run an inference query with a vision model and describe a web component from an image
 prompt: |-
-    Provide a very detailled description of all the elements in the image:
-    description of the element, position, content, colors and any useful info you
-    can provide. {prompt}
+    Provide a structured description of all the elements in the image from a developer perspective: the layout, position, style, colors, spacing, complete text content and any useful info you can provide.
+    
+    Notes:
+    - For images we will use placeholder, so just describe them for html implementation, the content does not matter.
+    - We will use Tailwindcss for styling
+
+    You only describe the specification of the html elements in the image for the developer, he will write the code later. 
+    Important: just describe and specify, avoid writing recommendations and html code.
+    {prompt}
 template:
-    system: |-
-        You are an AI web developer assistant. Your task is to analyze an image that
-        is part of a webpage design prototype made by our designer. We now 
-        need a detailled breakout of all the elements and content to help the developer to 
-        implement it later.
+    afterSystem: |-
+        You are an AI web developer assistant. Your task is to analyze an image that is part of a webpage design prototype made by our designer.
+        We now need a detailled breakout of all the html elements and content to help the developer to implement it later.
+    assistant: |-
+        Sure, here is the structured description:
+
+        ```markdown
+
+    stop:
+        - "```"
+ctx: 16384
 model:
-    name: qwen4b-vl
-    ctx: 8192
-    template: chatml
+    name: qwen30b-vl-t
 inferParams:
     top_k: 20
-    top_p: 0.95
+    top_p: 0.75
     min_p: 0
     temperature: 0.2
     max_tokens: 7500

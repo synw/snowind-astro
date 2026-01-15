@@ -5,6 +5,9 @@
   "version": "0.1.0",
   "dependencies": {
     "@agent-smith/apicli": "^0.0.4",
-    "@agent-smith/cli": "^0.0.91"
+    "@agent-smith/cli": "^0.0.96"
+  },
+  "devDependencies": {
+    "@agent-smith/feat-vision": "file:/home/ggg/dev/js/agent-smith-plugins/vision"
   }
 }

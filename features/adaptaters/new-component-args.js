@@ -1,6 +1,6 @@
-async function action(args, options)
+async function action (args, options)
 {
-    return { prompt: args.cmdArgs[0], filepath: args.cmdArgs[1] }
+    return { prompt: args[1], filepath: args[0] };
 }
 
-export { action }
+export { action };

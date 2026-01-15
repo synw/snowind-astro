@@ -1,0 +1,8 @@
+title: Image to Astro component
+steps:
+  - command: imgs2base64
+  - task: img-widget-desc
+  - adaptater: wf-img-remove
+  - task: astro-implementation-plan
+  - adaptater: adapt-plan-to-code
+  - task: astro-code-from-plan

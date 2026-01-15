@@ -1,13 +1,9 @@
-name: astro-component-create
-description: Create an Astro component using Snowind colors
+name: astro-component-create-from-img
+description: Create an Astro component from an image using Snowind colors
 prompt: |-
-    Create an Astro component from this description:
+    Create an Astro component from the image.
 
-    ```
-    {prompt}
-    ```
-
-    Now let's write the code. Important: remember to output only the html Astro component, not a full html page.
+    Output only the html Astro component, not a full html page.{prompt}
 template: 
     system: |-
         You are an AI frontend programming assistant. Your task is to create html widgets
@@ -49,12 +45,12 @@ template:
     stop:
         - "```"
     assistant: |-
-        Here is the astro component code:
+        Here is the Astro component code:
 
         ```astro
 ctx: 16384
 model:
-    name: nemotron
+    name: qwen30b-vl-t
     template: chatml
 inferParams:
     temperature: 0.3

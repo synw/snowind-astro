@@ -17,6 +17,11 @@ The `lm` command is now available. Create a `config.yml` file:
 ```yaml
 features:
   - /home/me/path/to/snowind-astro/features
+backends:
+  default: "llamacpp-openai"
+  llamacpp-openai:
+    type: "openai"
+    url: "http://localhost:8080/v1
 ```
 
 Run `lm conf config.yml`
@@ -25,22 +30,28 @@ Run `lm conf config.yml`
 
 ### Simple text to html
 
-Default model: `qwen2.5-coder:14b-instruct-q8_0`
-Best model: `Qwen2.5-Coder-32B-Instruct-IQ4_XS` using Koboldcpp
+Default model: `Qwen 3 30b thinking`
+Best model: `Qwen 3 coder 30b`
 
 Copy the text you wish to translate to html and run:
 
 ```bash
-lm sn-text2html --ic --oc
+lm text2html --ic --oc
 ```
 
 The `ic` flag means input copy, and the `oc` flag means output copy: the
-final answer will be ready to be pasted
+final answer will be ready to be pasted.
 
-To use another model (check the yaml file in the `features` directory for the list):
+Or run with a prompt:
 
 ```bash
-lm sn-text2html s=small  --ic --oc # uses the model size small, here qwen2.5-coder:7b-instruct-q8_0
+lm text2html --oc "create a hero component for an online shop selling plants and flowers"
+```
+
+To use another model:
+
+```bash
+lm sn-text2html -m qwencoder-32b  --ic --oc
 ```
 
 ### Text to html with a thinking process
