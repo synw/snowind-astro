@@ -50,6 +50,3 @@ variables:
     required:
         name:
             description: The lowercase component name, no extension
-    optional:
-        filename:
-            description: The filename of the component (used for writing the component in a workflow)

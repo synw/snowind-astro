@@ -22,7 +22,7 @@ const choices = [
     }
 ];
 
-async function runCmd(args, options)
+async function runCmd (args, options)
 {
     await init();
     await executeWorkflow("create-astro-component", args, options);
@@ -33,9 +33,9 @@ async function runCmd(args, options)
     });
     switch (answer) {
         case "keep":
-            return
+            return;
         case "revert":
-            await executeAction("revert-component", args, options)
+            await executeAction("revert-component", args, options);
     }
 }
 
@@ -44,9 +44,9 @@ const cmd = new Command("design-component")
     .description("Design an Astro component: arguments: component path, prompt")
     .action((..._args) =>
     {
-        const { args, options } = parseCommandArgs(_args)
-        runCmd(args, options)
+        const { args, options } = parseCommandArgs(_args);
+        runCmd(args, options);
     });
-allOptions.forEach(o => cmd.addOption(o))
+allOptions.forEach(o => cmd.addOption(o));
 
 export { cmd };

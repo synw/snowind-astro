@@ -1,0 +1,6 @@
+name: astro-extract-translations
+description: Extract text to translate from a component and create a i18n lang file
+steps:
+  - adaptater: adapt-read-component
+  - task: astro-extract-text-from-component
+  - adaptater: adapt-write-translation-file

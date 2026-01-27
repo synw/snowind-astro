@@ -1,4 +1,0 @@
-name: integrate-translations
-steps:
-  - action: read-translations
-  - task: astro-integrate-translations-into-component

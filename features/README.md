@@ -18,10 +18,19 @@ The `lm` command is now available. Create a `config.yml` file:
 features:
   - /home/me/path/to/snowind-astro/features
 backends:
-  default: "llamacpp-openai"
+  default: "llamacpp"
+  local: 
+    - "llamacpp"
+    - "koboldcpp"
+    - "ollama"
+  openrouter:
+    type: "openai"
+    url: "https://openrouter.ai/api/v1"
+    apiKey: "$OPENROUTER_API_KEY"
   llamacpp-openai:
     type: "openai"
     url: "http://localhost:8080/v1
+  
 ```
 
 Run `lm conf config.yml`

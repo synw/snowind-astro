@@ -58,23 +58,19 @@ template:
     ```
   stop:
       - "```"
-  assistant: |-
-      ```astro
-ctx: 16384
+  assistant: "```astro\n"
+ctx: 32768
 model:
-    name: uigen30b
+    name: qwencoder
     template: chatml
 inferParams:
   temperature: 0.3
   top_p: 0.80
   top_k: 20
   min_p: 0
-  max_tokens: 15000
 variables:
   required:
     translations:
       description: The content of the translations file
     translations-filepath:
-      description: The filepath of the translations file
-    filepath:
-      description: The filepath of the component
+      description: The component relative filepath of the translations file

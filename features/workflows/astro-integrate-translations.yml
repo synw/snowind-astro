@@ -1,0 +1,5 @@
+name: integrate-translations
+steps:
+  - adaptater: adapt-read-translations
+  - task: astro-integrate-translations-into-component
+  - adaptater: adapt-edit-component
