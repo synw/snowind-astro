@@ -24,7 +24,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import BackIcon from '../icons/BackIcon.vue';
-import { mobileBreakpoint, languages } from "../conf";
+import { mobileBreakpoint, languages } from "../conf.mjs";
 
 defineProps({
     pageTitle: {

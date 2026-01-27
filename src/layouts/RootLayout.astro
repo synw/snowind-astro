@@ -1,6 +1,6 @@
 ---
 import TheFooter from "../components/TheFooter.astro";
-import { theme, siteTitle } from "../conf";
+import { theme, siteTitle } from "../conf.mjs";
 import "../scss/main.scss";
 
 const { title, hideFooter } = Astro.props;
@@ -50,7 +50,7 @@ const mainTitle = siteTitle + " - " + title;
 </style>
 
 <script>
-	import { theme } from "../conf";
+	import { theme } from "../conf.mjs";
 
 	const t = document.getElementsByTagName("html")[0];
 	const stheme = localStorage.getItem("theme") ?? theme;

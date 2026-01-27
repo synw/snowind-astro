@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-import { languages } from '../conf';
+import { languages } from '../conf.mjs';
 import { langStore } from '../state';
 import { ref } from 'vue';
 

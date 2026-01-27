@@ -13,7 +13,7 @@
 import MoonIcon from '../icons/MoonIcon.vue';
 import SunIcon from '../icons/SunIcon.vue';
 import { ref } from 'vue';
-import { mobileBreakpoint } from '../conf.js';
+import { mobileBreakpoint } from '../conf.mjs';
 
 const dm = ref(false);
 const ism = window.innerWidth <= mobileBreakpoint;

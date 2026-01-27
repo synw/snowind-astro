@@ -1,5 +1,5 @@
 import { persistentAtom, persistentBoolean } from '@nanostores/persistent'
-import { theme } from './conf.js';
+import { theme } from './conf.mjs';
 
 const themeStore = persistentAtom<string>("theme", theme);
 const langStore = persistentAtom<string>("lang", "");

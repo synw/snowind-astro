@@ -1,4 +1,4 @@
-import { languages as ln } from "../conf";
+import { languages as ln } from "../conf.mjs";
 import { langStore } from "../state";
 
 const languages = ln;

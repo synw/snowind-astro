@@ -1,4 +1,4 @@
-import { languages } from "./conf";
+import { languages } from "./conf.mjs";
 
 // Reusable function to generate paths for [lang] routes
 export const getLangPaths = (langs: string[]) => {
