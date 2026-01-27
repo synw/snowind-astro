@@ -4,7 +4,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import icon from "astro-icon";
 import vue from '@astrojs/vue';
-import { defaultLanguage, languages } from './src/conf';
+import { defaultLanguage, languages } from './src/conf.mjs';
 
 // https://astro.build/config
 export default defineConfig({
