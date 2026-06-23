@@ -11,12 +11,14 @@
   },
   "dependencies": {
     "@agent-smith/server": "^0.1.5",
+    "@agent-smith/types": "^0.0.7",
     "@agent-smith/wscli": "^0.0.7",
     "@astrojs/vue": "^6.0.1",
     "@nanostores/persistent": "^1.3.4",
     "@tailwindcss/vite": "^4.3.1",
     "@vueuse/core": "^14.3.0",
     "astro": "^6.4.8",
+    "markstream-vue": "^1.0.4-beta.0",
     "vue": "^3.5.38"
   },
   "devDependencies": {

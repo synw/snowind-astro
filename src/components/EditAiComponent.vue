@@ -10,10 +10,10 @@
             </div>
             <div class="flex flex-row justify-end space-x-3 w-full">
                 <div v-if="nTokens > 0" class="txt-semilight">{{ nTokens }} tokens</div>
-                <div class="flex-grow flex justify-end space-x-3">
+                <div class="grow flex justify-end space-x-3">
                     <button class="light btn px-4 py-2 rounded" @click="showEditor = false">Close</button>
                     <button class="warning btn px-4 py-2 rounded" @click="onRevert()">Revert</button>
-                    <button class="success btn px-4 py-2 rounded" @click="onSubmit()">Submit</button>
+                    <button class="success btn px-4 py-2 rounded" @click="exec()">Submit</button>
                 </div>
             </div>
             <pre>
@@ -22,7 +22,7 @@
                 </code>
             </pre>
         </div>
-        <div v-else class="flex flex-row justify-end relative top-[-4rem] right-[1rem]">
+        <div v-else class="flex flex-row justify-end relative -top-16 right-4">
             <button class="btn flex flex-row items-center p-3 secondary rounded-full"
                 @click="showEditor = !showEditor">✏️</button>
         </div>
@@ -31,8 +31,8 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { aiServerApiKey, projectCodePath } from '../conf.local';
-import { useClientFeatures } from '@agent-smith/wscli';
+import { projectCodePath } from '../conf.local';
+import { srv } from '../services/inference.js';
 
 const props = defineProps({
     component: {
@@ -40,9 +40,6 @@ const props = defineProps({
         required: true
     }
 })
-
-const stream = ref("");
-
 
 const showEditor = ref(false);
 const data = "";
@@ -52,30 +49,19 @@ const resp = ref("");
 const componentPath = projectCodePath + "/src/aiwidgets/" + props.component;
 const nTokens = ref(0);
 
-const api = useServer({
-    apiKey: aiServerApiKey,
-    onToken: (t) => {
-        resp.value += t;
-        ++nTokens.value;
-    },
-});
-
-async function onSubmit() {
-    nTokens.value = 0;
-    resp.value = "";
-
-    // TODO: handle multiline strings
-
-    //const data = _data.value.replaceAll(/\n/g, ' \\ \n');
-    //const data = _data.value.split("\n");
+async function exec() {
+    await srv.load("edit-astro-component");
     const data = _data.value;
     console.log("Prompt:", data);
-    await api.executeCmd("edit-astro-component", [componentPath, data]);
+    const opts = { variables: { componentPath: componentPath } }
+    await srv.executeAgent(data, opts);
 }
 
 async function onRevert() {
     resp.value = "";
-    await api.executeCmd("revert-component", [componentPath]);
+    await srv.load("rever-component");
+    const opts = { variables: { componentPath: componentPath } }
+    await srv.executeAgent("", opts);
 }
 
 const rows = computed(() => {
