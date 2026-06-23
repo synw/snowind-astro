@@ -2,6 +2,7 @@
 import TheFooter from "../components/TheFooter.astro";
 import { theme, siteTitle } from "../conf.mjs";
 import "../scss/main.scss";
+import "../styles/global.css";
 
 const { title, hideFooter } = Astro.props;
 const hideF = hideFooter ?? false;
@@ -18,7 +19,7 @@ const mainTitle = siteTitle + " - " + title;
 		<meta name="generator" content={Astro.generator} />
 		<title>{mainTitle}</title>
 	</head>
-	<body>
+	<body class="background">
 		<div id="pageroot" class={pageRootCss}>
 			<slot />
 		</div>
@@ -41,12 +42,12 @@ const mainTitle = siteTitle + " - " + title;
 		width: 100%;
 		height: 100%;
 	}
-	html {
+	/*html {
 		@apply background;
 	}
 	html.dark {
 		@apply dark-background;
-	}
+	}*/
 </style>
 
 <script>

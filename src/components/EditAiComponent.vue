@@ -31,8 +31,8 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { useServer } from "@agent-smith/apicli";
 import { aiServerApiKey, projectCodePath } from '../conf.local';
+import { useClientFeatures } from '@agent-smith/wscli';
 
 const props = defineProps({
     component: {
@@ -40,6 +40,9 @@ const props = defineProps({
         required: true
     }
 })
+
+const stream = ref("");
+
 
 const showEditor = ref(false);
 const data = "";

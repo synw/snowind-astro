@@ -1,13 +1,9 @@
-import { Command } from "commander";
-import select from '@inquirer/select';
-import
-{
-    executeWorkflow,
+import {
     executeAction,
-    init,
-    allOptions,
-    parseCommandArgs,
+    executeWorkflow,
+    init
 } from "@agent-smith/cli";
+import select from '@inquirer/select';
 
 const choices = [
     {
@@ -22,8 +18,7 @@ const choices = [
     }
 ];
 
-async function runCmd (args, options)
-{
+async function run(args, options) {
     await init();
     await executeWorkflow("create-astro-component", args, options);
     const answer = await select({
@@ -39,14 +34,13 @@ async function runCmd (args, options)
     }
 }
 
-const cmd = new Command("design-component")
-    .arguments("[args...]")
-    .description("Design an Astro component: arguments: component path, prompt")
-    .action((..._args) =>
-    {
-        const { args, options } = parseCommandArgs(_args);
-        runCmd(args, options);
-    });
-allOptions.forEach(o => cmd.addOption(o));
+const cmd = {
+    name: "design-component [args...]",
+    description: "Design an Astro component: arguments: component path, prompt",
+    options: [
+        "all",
+    ],
+    run: run
+};
 
 export { cmd };

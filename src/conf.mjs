@@ -24,8 +24,7 @@ const languages = {
 const defaultLanguage = "en";
 const navLinks = ["page1"];
 
-export
-{
+export {
     theme,
     siteTitle,
     mobileBreakpoint,

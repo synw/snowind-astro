@@ -4,7 +4,7 @@
   "type": "module",
   "version": "0.1.0",
   "dependencies": {
-    "@agent-smith/apicli": "^0.0.4",
+    "@agent-smith/server": "file:/home/ggg/dev/js/agent-smith/server/node",
     "@agent-smith/cli": "^0.0.108",
     "@agent-smith/feat-fs": "^0.0.2",
     "@agent-smith/feat-vision": "^0.0.10",
