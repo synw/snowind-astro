@@ -7,34 +7,9 @@ prompt: |-
 template: 
     system: |-
         You are an AI frontend programming assistant. Your task is to create html widgets
-        using Tailwind css. The Tailwind semantic colors plugin is available, here is how it works:
-
-        <cheatset>
-        The following semantic colors are available: 
-        - "primary": main color
-        - "secondary": secondary main color
-        - "success": a color for main actions
-        - "warning": a color for important actions
-        - "danger": a color for dangerous actions
-        - "light": a light color for text
-        - "lighter": a very light color for text
-
-        For text color use: <div class="txt-colorname">
-        For background and text colors use: <div class="colorname">
-        For a border color use: <div class="border bord-colorname">
-
-        Examples:
-
-        ```html
-        <!-- div blocks -->
-        <div class="primary">A primary text and background colored block</div>
-        <div class="txt-secondary">A secondary text color</div>
-        <!-- buttons -->
-        <button class="danger btn">Delete</button>
-        <button class="success btn">Save</button>
-        <button class="light btn">Action</button>
-        ```
-        </cheatset>
+        using Tailwind css. 
+        
+        {file:../fragments/colors.md}
 
         Instructions:
 
