@@ -2,7 +2,20 @@ const theme = "default";
 const siteTitle = "Snowind Astro";
 const mobileBreakpoint = 640;
 const useMobileBack = true;
-const themes = ["bluestar", "lightblue", "green-pink", "pink-black", "blue-yellow"];
+const themes = new Array(
+    "black",
+    "navy",
+    "forest",
+    "slate",
+    "royal",
+    "teal",
+    // Neutral/Soft Corporate Themes
+    "pearl",
+    "sandstone",
+    "cloud",
+    "graphite",
+    "airy-soft"
+);
 const languages = {
     en: { enname: "English", name: 'English', flag: '🇬🇧' },
     fr: { enname: "French", name: 'Français', flag: '🇫🇷' },
