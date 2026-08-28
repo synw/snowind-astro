@@ -10,27 +10,27 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@agent-smith/server": "^0.1.5",
-    "@agent-smith/types": "^0.0.7",
-    "@agent-smith/wscli": "^0.0.7",
-    "@astrojs/vue": "^6.0.1",
-    "@nanostores/persistent": "^1.3.4",
-    "@tailwindcss/vite": "^4.3.1",
-    "@vueuse/core": "^14.3.0",
-    "astro": "^6.4.8",
-    "markstream-vue": "^1.0.4-beta.0",
-    "vue": "^3.5.38"
+    "@agent-smith/server": "^0.2.6",
+    "@agent-smith/types": "^0.0.10",
+    "@agent-smith/wscli": "^0.0.9",
+    "@astrojs/vue": "^7.0.2",
+    "@nanostores/persistent": "^1.3.5",
+    "@tailwindcss/vite": "^4.3.3",
+    "@vueuse/core": "^14.4.0",
+    "astro": "^7.2.9",
+    "markstream-vue": "^2.0.6",
+    "vue": "^3.5.42"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.11",
-    "@types/node": "^26.0.0",
-    "astro-icon": "^1.1.5",
-    "concurrently": "^10.0.3",
-    "sass": "^1.101.0",
-    "tailwindcss": "^4.3.1",
+    "@types/node": "^26.4.0",
+    "astro-icon": "^1.2.0",
+    "concurrently": "^10.0.5",
+    "sass": "^1.103.1",
+    "tailwindcss": "^4.3.3",
     "tailwindcss-semantic-colors": "^0.6.0",
     "ts-node": "^10.9.2",
     "tslib": "2.8.1",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   }
 }
