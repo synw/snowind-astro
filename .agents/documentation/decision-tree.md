@@ -32,6 +32,12 @@
 4. Check `features/workflows/` for workflow definitions
 5. Check `features/cmds/` for CLI commands
 
+## I need to work with colors and styling
+
+1. Read [colors.md](./colors.md) for Tailwind semantic color utilities (prim, sec, danger, success, etc.)
+2. Check `src/scss/` for theme SCSS files
+3. Review `src/conf.mjs` for theme configuration
+
 ## I need detailed documentation
 
 | Topic | Path |
@@ -40,6 +46,7 @@
 | Architecture & navigation | [project-nav.md](./project-nav.md) |
 | Technical summary | [codebase-summary.md](./codebase-summary.md) |
 | Conventions & patterns | [AGENTS.md](../../AGENTS.md) |
+| Semantic colors | [colors.md](./colors.md) |
 
 ## Common Tasks (Quick Reference)
 
@@ -51,6 +58,7 @@
 | Add component to page | [frontend-guide.md](./frontend-guide.md) |
 | Edit a component | [frontend-guide.md](./frontend-guide.md) |
 | Modify theme | `src/conf.mjs` + `src/scss/` |
+| Use semantic colors | [colors.md](./colors.md) |
 | Add AI feature | `features/actions/` or `features/agents/` |
 | Run dev server | `npm run dev` (see README.md) |
 

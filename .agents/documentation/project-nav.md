@@ -84,6 +84,9 @@ features/
 ### Themes
 `bluestar`, `lightblue`, `green-pink`, `pink-black`, `blue-yellow` — defined in `src/scss/`
 
+### Colors
+Semantic color utilities via Tailwind plugin — see [colors.md](./colors.md) for full reference (prim, sec, danger, success, warning, info, background, light, etc.)
+
 ## Code Snippets
 
 ### Creating a new Astro page
@@ -146,6 +149,7 @@ node actions/astro-translate-component.js
 | Project overview | [project-overview.md](./project-overview.md) |
 | Frontend guide | [frontend-guide.md](./frontend-guide.md) |
 | Root codebase summary | [codebase-summary.md](./codebase-summary.md) |
+| Semantic colors | [colors.md](./colors.md) |
 | Features README | [features/README.md](../../features/README.md) |
 | Project README | [README.md](../../README.md) |
 

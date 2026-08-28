@@ -25,6 +25,7 @@ Snowind Astro is an AI-powered static site generator template built with Astro, 
 2. Review `.agents/documentation/project-overview.md` for project overview
 3. Check `.agents/documentation/project-nav.md` for comprehensive navigation map
 4. Read `.agents/documentation/codebase-summary.md` for technical details
+5. **Read `.agents/documentation/colors.md`** for Tailwind semantic color utilities
 
 ## Documentation
 
@@ -35,3 +36,4 @@ Snowind Astro is an AI-powered static site generator template built with Astro, 
 | `.agents/documentation/project-overview.md` | Concise one-page overview of the project |
 | `.agents/documentation/project-nav.md` | Comprehensive navigation map — architecture, dependencies, snippets |
 | `.agents/documentation/codebase-summary.md` | Technical summary with 7-section format |
+| `.agents/documentation/colors.md` | Tailwind semantic color utilities — prim, sec, danger, success, etc. |

@@ -53,3 +53,4 @@ An AI-powered Astro template for generating multi-language static documentation 
 - [decision-tree.md](./decision-tree.md) — Find the right documentation
 - [project-overview.md](./project-overview.md) — One-page project overview
 - [project-nav.md](./project-nav.md) — Comprehensive navigation map
+- [colors.md](./colors.md) — Tailwind semantic color utilities (prim, sec, danger, success, etc.)

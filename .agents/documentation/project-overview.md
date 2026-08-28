@@ -12,6 +12,7 @@ Snowind Astro is a modular, AI-assisted static site template built on Astro that
 - **AI Component Generation**: Create and modify components via AI agents (YML configs in `features/agents/`)
 - **Multi-Language Support**: 15+ locales with i18n routing (`/[lang]/page`)
 - **Theming System**: 5 built-in themes via SCSS, configurable in `src/conf.mjs`
+- **Semantic Colors**: Tailwind semantic color utilities (prim, sec, danger, success) — see [colors.md](./colors.md)
 - **Responsive Design**: Tailwind CSS v4 with mobile breakpoints
 - **Dynamic Features**: Actions, adaptaters, and workflows for AI-assisted development
 
@@ -81,4 +82,5 @@ const theme = "mytheme"; // must match a file in src/scss/
 | Decision tree | [decision-tree.md](./decision-tree.md) |
 | Navigation map | [project-nav.md](./project-nav.md) |
 | Technical summary | [codebase-summary.md](./codebase-summary.md) |
+| Semantic colors | [colors.md](./colors.md) |
 | Features README | [features/README.md](../../features/README.md) |
