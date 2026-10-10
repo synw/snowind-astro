@@ -1,69 +1,47 @@
 # Documentation Decision Tree
 
-> This decision tree helps AI agents find the right documentation for their task. Start here, then follow the links to detailed docs.
+> Quick guide: What to read based on your task.
+> For most tasks this file alone is enough — follow the path and open the source file directly.
 
 ## I need to understand the project
 
-- **Project overview**: [project-overview.md](./project-overview.md) — One-page summary of what Snowind Astro is
-- **Navigation map**: [project-nav.md](./project-nav.md) — Architecture, dependencies, code structure
-- **Technical summary**: [codebase-summary.md](./codebase-summary.md) — Dependencies, entry points, key files
+- High-level overview → `.agents/documentation/project-overview.md`
+- Full navigation map & deep reference → `.agents/documentation/project-nav.md`
+- Structured technical summary → `codebase-summary.md` (root) or `features/.agents/documentation/codebase-summary.md`
 
-## I need to work on the main site (`/`)
+## I need to work on the main site (`snowind-astro`)
 
-1. Read [AGENTS.md](../../AGENTS.md) for project conventions and quick start
-2. Check [codebase-summary.md](./codebase-summary.md) for technical details
-3. Review `src/conf.mjs` for configuration, `src/state.ts` for state management
-4. Pages: `src/pages/`, Components: `src/components/`, Layouts: `src/layouts/`
+1. Read `codebase-summary.md` for technical summary
+2. Configuration: `src/conf.mjs` — State: `src/state.ts`
+3. Pages: `src/pages/` · Components (Vue): `src/components/*.vue` · Layouts/navigation (Astro): `src/layouts/`, `src/components/*.astro`
 
-## I need to work on the frontend (pages, components)
+## I need to work on AI features (`snowind-astro-features`)
 
-1. Read [frontend-guide.md](./frontend-guide.md) for practical guides on:
-   - Creating new pages (static and i18n)
-   - Adding Astro or Vue components to pages
-   - Editing components directly or via AI actions
-2. Check [project-nav.md](./project-nav.md) for component locations and patterns
-3. Review `src/layouts/` for layout wrapper options
+1. Read `features/.agents/documentation/codebase-summary.md` for technical summary
+2. Actions: `features/actions/` · Agents: `features/agents/*.yml` · Workflows: `features/workflows/*.yml`
+3. Commands: `features/cmds/` · Adaptaters: `features/adaptaters/` · Fragments: `features/fragments/`
 
-## I need to work on AI features (`/features`)
+## I need practical frontend guides (pages, components)
 
-1. Read [features/README.md](../../features/README.md) for feature documentation
-2. Check `features/actions/` for AI action scripts
-3. Check `features/agents/` for YML agent configurations
-4. Check `features/workflows/` for workflow definitions
-5. Check `features/cmds/` for CLI commands
+- Creating pages & adding components → `.agents/documentation/frontend-guide.md`
 
-## I need to work with colors and styling
+## I need colors and styling
 
-1. Read [colors.md](./colors.md) for Tailwind semantic color utilities (prim, sec, danger, success, etc.)
-2. Check `src/scss/` for theme SCSS files
-3. Review `src/conf.mjs` for theme configuration
-
-## I need detailed documentation
-
-| Topic | Path |
-|-------|------|
-| Project overview | [project-overview.md](./project-overview.md) |
-| Architecture & navigation | [project-nav.md](./project-nav.md) |
-| Technical summary | [codebase-summary.md](./codebase-summary.md) |
-| Conventions & patterns | [AGENTS.md](../../AGENTS.md) |
-| Semantic colors | [colors.md](./colors.md) |
+- Semantic color utilities → `.agents/documentation/colors.md`
+- CSS system (Tailwind 4 + SCSS theming) → `.agents/documentation/css-system-guide.md`
 
 ## Common Tasks (Quick Reference)
 
-| Task | Start Here |
-|------|------------|
-| Understand the project | [project-overview.md](./project-overview.md) |
-| Find code location | [project-nav.md](./project-nav.md) → [codebase-summary.md](./codebase-summary.md) |
-| Create a new page | [frontend-guide.md](./frontend-guide.md) |
-| Add component to page | [frontend-guide.md](./frontend-guide.md) |
-| Edit a component | [frontend-guide.md](./frontend-guide.md) |
+| Task | Go To |
+|------|-------|
+| Understand the project | `.agents/documentation/project-overview.md` |
+| Find code location | `.agents/documentation/project-nav.md` → `codebase-summary.md` |
+| Create a new page | `.agents/documentation/frontend-guide.md` → `src/pages/[lang]/` |
+| Add component to page | `.agents/documentation/frontend-guide.md` → `src/components/` |
+| Edit a component | `features/actions/` + `codebase-summary.md` |
 | Modify theme | `src/conf.mjs` + `src/scss/` |
-| Use semantic colors | [colors.md](./colors.md) |
+| Use semantic colors | `.agents/documentation/colors.md` |
 | Add AI feature | `features/actions/` or `features/agents/` |
 | Run dev server | `npm run dev` (see README.md) |
 
-## Conventions
-
-For full conventions and patterns, see [AGENTS.md](../../AGENTS.md).
-
-Key patterns: ES module config, nanostores state, Astro+Vue components, Tailwind CSS v4, i18n routing.
+→ Conventions & patterns: `.agents/documentation/project-nav.md` § Key Conventions & Patterns.

@@ -2,12 +2,7 @@
 
 ## Project Overview
 
-Snowind Astro is an AI-powered static site generator template built with Astro, Vue, and Tailwind CSS. It generates multi-language documentation sites with dynamic component creation, modification capabilities via AI agents, theming system, and responsive design.
-
-| Repo | Path | Purpose |
-|------|------|---------|
-| snowind-astro | `/` | Main Astro site — pages, components, layouts, themes, server |
-| snowind-astro-features | `/features` | AI agent features — actions, adaptaters, agents, workflows |
+Snowind Astro is an AI-powered static site generator template built with Astro, Vue, and Tailwind CSS. It generates multi-language documentation sites with dynamic component creation/modification via AI agents, a runtime theming system, and responsive design.
 
 ## Architecture Principles
 
@@ -38,7 +33,7 @@ features/
 └── @inquirer/select (CLI prompts)
 ```
 
-**Flow**: Astro pages render → Vue components hydrate → nanostores manage state → AI actions in features/ modify components.
+**Flow**: Astro pages render → Vue components hydrate → nanostores manage state → AI actions in `features/` modify components.
 
 ## Packages/Modules
 
@@ -85,7 +80,7 @@ features/
 `bluestar`, `lightblue`, `green-pink`, `pink-black`, `blue-yellow` — defined in `src/scss/`
 
 ### Colors
-Semantic color utilities via Tailwind plugin — see [colors.md](./colors.md) for full reference (prim, sec, danger, success, warning, info, background, light, etc.)
+Semantic color utilities via Tailwind plugin — see [colors.md](./colors.md) for full reference (prim, sec, danger, success, warning, info, background, light, etc.). Full CSS stack (Tailwind 4 + SCSS custom-property theming) documented in [css-system-guide.md](./css-system-guide.md).
 
 ## Code Snippets
 
@@ -121,25 +116,6 @@ languages: {
 node actions/astro-translate-component.js
 ```
 
-## Navigation Quick Reference
-
-| Task | Go To |
-|------|-------|
-| Find the right doc | [decision-tree.md](./decision-tree.md) |
-| Project overview | [project-overview.md](./project-overview.md) |
-| Frontend guide (pages, components) | [frontend-guide.md](./frontend-guide.md) |
-| Technical summary (root) | [codebase-summary.md](./codebase-summary.md) |
-| Technical summary (features) | `features/.agents/documentation/codebase-summary.md` |
-| Conventions | [AGENTS.md](../../AGENTS.md) |
-| Create a page | [frontend-guide.md](./frontend-guide.md) → `src/pages/` |
-| Add component to page | [frontend-guide.md](./frontend-guide.md) |
-| Edit a component | [frontend-guide.md](./frontend-guide.md) |
-| Change theme | `src/conf.mjs` + `src/scss/` |
-| AI action | `features/actions/` |
-| Agent config | `features/agents/*.yml` |
-| Run dev server | `npm run dev` |
-| Build site | `npm run build` |
-
 ## Documentation Links
 
 | Resource | Path |
@@ -148,6 +124,7 @@ node actions/astro-translate-component.js
 | Decision tree | [decision-tree.md](./decision-tree.md) |
 | Project overview | [project-overview.md](./project-overview.md) |
 | Frontend guide | [frontend-guide.md](./frontend-guide.md) |
+| CSS system guide | [css-system-guide.md](./css-system-guide.md) |
 | Root codebase summary | [codebase-summary.md](./codebase-summary.md) |
 | Semantic colors | [colors.md](./colors.md) |
 | Features README | [features/README.md](../../features/README.md) |

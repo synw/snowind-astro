@@ -1,44 +1,42 @@
 # snowind-astro-features
 
 ## Summary
-AI agent feature modules for Snowind Astro — actions, adaptaters, agent configurations, CLI commands, and workflows for AI-assisted component generation and translation.
+AI feature library that drives AI-assisted component creation, editing, and translation for the Snowind Astro site.
 
 ## Dependencies
-- `@agent-smith/server` — Server utilities (local file reference)
-- `@agent-smith/cli` — CLI tooling
-- `@agent-smith/feat-fs` — Filesystem feature utilities
-- `@agent-smith/feat-vision` — Vision/image processing features
-- `@inquirer/select` — Interactive CLI prompts
+- `@agent-smith/cli` — Agent Smith CLI (`lm`) that runs actions/agents
+- `@agent-smith/server` — local file helpers (file-system ref)
+- `@agent-smith/feat-fs` — feature filesystem utilities
+- `@agent-smith/feat-vision` — image/vision handling
+- `@inquirer/select` — CLI prompts
 
 ## Used By
-- AI agents in `features/agents/` — consume actions and adaptaters
-- Development workflow — actions triggered by agent configurations
+- AI agents and workflows in `features/agents/` and `features/workflows/`
+- Snowind Astro site components (read/written by actions)
 
 ## Entry Point
-- `features/actions/` — AI action scripts for component creation/editing
-- `features/workflows/` — YAML workflow definitions for translation pipelines
-- `features/agents/` — YML agent configuration files
-- `features/cmds/` — CLI command scripts
+- `features/actions/*.js` — Node.js action scripts (write/translate/edit components)
+- `features/utils.ts` — Shared TypeScript utilities
 
 ## Key Files
 | File | Purpose |
 |------|---------|
-| `features/actions/astro-translate-component.js` | AI action to translate Astro components |
-| `features/actions/astro-update-translations.js` | Update translations in components |
-| `features/adaptaters/adapt-edit-component.js` | Adapt input for component editing |
-| `features/adaptaters/adapt-read-translations.js` | Extract translations from components |
-| `features/workflows/astro-extract-translations.yml` | Workflow: extract translations |
-| `features/workflows/astro-integrate-translations.yml` | Workflow: integrate translations |
-| `features/agents/astro-component-chat.yml` | Agent config: component chat |
-| `features/agents/astro-component-edit.yml` | Agent config: component editing |
-| `features/cmds/design-component.mjs` | CLI command for component design |
-| `features/utils.ts` | Shared utility functions |
+| `features/actions/write-component.js` | Generate a new component |
+| `features/actions/astro-translate-component.js` | Translate component content |
+| `features/actions/astro-update-translations.js` | Apply translation updates |
+| `features/actions/revert-component.js` | Revert component changes |
+| `features/adaptaters/adapt-plan-to-code.js` | Transform a plan into code |
+| `features/adaptaters/adapt-read-component.js` | Read/parse a component |
+| `features/agents/*.yml` | Agent configuration YAMLs |
+| `features/workflows/*.yml` | Translation workflow definitions |
+| `features/cmds/design-component.mjs` | Component design CLI command |
 
 ## Architecture
-- **Actions + Adaptaters pattern**: Actions define AI operations; adaptaters transform data between formats
-- **YML agent configs**: Agent behaviors defined as YAML — consumed by agent-smith framework
-- **Workflow definitions**: Multi-step translation pipelines as YAML workflows
-- **CLI commands**: Node.js scripts for interactive component design
+- Node ESM action scripts import from `@agent-smith/*` and run via the Agent Smith CLI
+- YML agent/workflow configs declare prompts, adaptaters, and steps
+- Actions read components → adapt/trans data → write back to `src/`
+→ Full detail: `project-nav.md` § Key Conventions & Patterns
 
 ## Related
-- See `../.agents/documentation/codebase-summary.md` — Root project summary
+- See root `codebase-summary.md` — the site these features modify
+- See `../../AGENTS.md` — project-wide context (workspace root)

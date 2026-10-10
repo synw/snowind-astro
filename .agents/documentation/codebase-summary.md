@@ -1,7 +1,7 @@
 # snowind-astro
 
 ## Summary
-An AI-powered Astro template for generating multi-language static documentation sites with dynamic component generation and theming.
+AI-powered Astro template for multi-language static documentation sites with dynamic component generation and theming.
 
 ## Dependencies
 - `@agent-smith/server` — Node server helper for dev mode
@@ -20,7 +20,7 @@ An AI-powered Astro template for generating multi-language static documentation 
 - Development server — runs alongside Astro dev server
 
 ## Entry Point
-- `astro.config.mjs` — Astro configuration with Vue integration and i18n
+- `astro.config.mjs` — Astro config with Vue, i18n, Tailwind v4 plugin
 - `src/server.ts` — Optional Node.js server entry for dev mode
 - `src/conf.mjs` — Centralized configuration exports (theme, languages, navLinks)
 
@@ -39,18 +39,12 @@ An AI-powered Astro template for generating multi-language static documentation 
 | `src/scss/main.scss` | SCSS theme entry point |
 
 ## Architecture
-- **Astro-first**: Pages rendered at build time, Vue components hydrated for interactivity
-- **i18n routing**: Locale-prefixed paths (`/[lang]/page`) with default locale redirection control
-- **State persistence**: Nanostores sync to localStorage for theme, language, and mobile state
-- **Theming via SCSS**: Multiple themes defined as SCSS partials, switched at runtime
+- Astro-first: pages rendered at build time, Vue components hydrated for interactivity
+- i18n routing: locale-prefixed paths (`/[lang]/page`) with default-locale redirection control
+- State persistence: nanostores sync to localStorage for theme, language, and mobile state
+- Theming via SCSS: multiple themes as SCSS partials, switched at runtime
+→ Full detail: `project-nav.md` § Key Conventions & Patterns
 
 ## Related
 - See `features/` — AI feature actions, agents, and workflows
 - See `doc/` — Project documentation
-
-## Documentation
-- [AGENTS.md](../../AGENTS.md) — Project conventions and quick start
-- [decision-tree.md](./decision-tree.md) — Find the right documentation
-- [project-overview.md](./project-overview.md) — One-page project overview
-- [project-nav.md](./project-nav.md) — Comprehensive navigation map
-- [colors.md](./colors.md) — Tailwind semantic color utilities (prim, sec, danger, success, etc.)

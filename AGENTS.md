@@ -6,34 +6,28 @@ Snowind Astro is an AI-powered static site generator template built with Astro, 
 
 ## Repositories
 
-| Repo Name | Path | Purpose |
-|-----------|------|---------|
-| snowind-astro | `/` | Main Astro site — pages, components, layouts, themes, and server |
-| snowind-astro-features | `/features` | AI agent features — actions, adaptaters, agents configs, cmds, fragments, workflows |
-
-## Conventions (for AI Agents)
-
-1. **Configuration via ES modules**: Site config lives in `src/conf.mjs` — exports theme, languages, navLinks. Modify here to change site structure.
-2. **State with nanostores**: Persistent state management using `@nanostores/persistent` — see `src/state.ts` for stores (theme, lang, mobile).
-3. **Astro pages + Vue components**: Pages go in `src/pages/` wrapped by layouts; UI components are Vue (.vue); layout/navigation components are Astro (.astro).
-4. **Tailwind CSS v4**: Uses `@tailwindcss/vite` plugin — styles defined in `src/styles/` and `src/scss/` for theming.
-5. **i18n routing**: Multi-language support with locale prefixes (`/[lang]/page`) — languages configured in `src/conf.mjs`.
+| Repo | Path | Purpose |
+|------|------|---------|
+| `snowind-astro` | `/` | Main Astro site — pages, components, layouts, themes, server |
+| `snowind-astro-features` | `/features` | AI agent features — actions, adaptaters, agents configs, cmds, fragments, workflows |
 
 ## Quick Start for AI Agents
 
-1. Read `.agents/documentation/decision-tree.md` to find the right documentation
-2. Review `.agents/documentation/project-overview.md` for project overview
-3. Check `.agents/documentation/project-nav.md` for comprehensive navigation map
-4. Read `.agents/documentation/codebase-summary.md` for technical details
-5. **Read `.agents/documentation/colors.md`** for Tailwind semantic color utilities
+1. Read `.agents/documentation/decision-tree.md` — the router: it tells you exactly which doc or source file your task needs.
+2. Most tasks end here: go straight to the listed source files. Do not load every doc.
+3. Load additional docs only when needed:
+   - `.agents/documentation/project-overview.md` — only for conceptual context
+   - `.agents/documentation/project-nav.md` — only for deep reference (conventions, snippets, maps)
+4. Navigate to the relevant repo and read its `.agents/documentation/codebase-summary.md`.
+
+## Conventions
+
+→ See `.agents/documentation/project-nav.md` § Key Conventions & Patterns (single source of truth).
 
 ## Documentation
 
-| File | Description |
-|------|-------------|
-| `AGENTS.md` | This file — project root index with mission, conventions, and quick start |
-| `.agents/documentation/decision-tree.md` | Quick guide to find the right documentation based on your task |
-| `.agents/documentation/project-overview.md` | Concise one-page overview of the project |
-| `.agents/documentation/project-nav.md` | Comprehensive navigation map — architecture, dependencies, snippets |
-| `.agents/documentation/codebase-summary.md` | Technical summary with 7-section format |
-| `.agents/documentation/colors.md` | Tailwind semantic color utilities — prim, sec, danger, success, etc. |
+- `decision-tree.md` — Router: task → doc/file map
+- `project-overview.md` — Concise context (~1 page)
+- `project-nav.md` — Canonical deep reference (conventions, snippets, maps)
+- `codebase-summary.md` — Machine-readable summary of this module (snowind-astro)
+- `features/.agents/documentation/codebase-summary.md` — Machine-readable summary of the features module (snowind-astro-features)
